@@ -1,6 +1,6 @@
 nav {
     background-color: rgb(218, 245, 227);
-    height: calc(100vh - 80px);
+    height: calc(100vh - 70px);
     display: flex;
     flex-direction: column;
     width: 5%;
