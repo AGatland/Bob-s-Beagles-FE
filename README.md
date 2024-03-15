@@ -1,5 +1,5 @@
 # Bob-s-Beagles-FE
-Frontend of the Bob's Beagles Eccomerce App
+Frontend of the Bob's Beagles Ecommerce App
 
 # React + Vite
 
