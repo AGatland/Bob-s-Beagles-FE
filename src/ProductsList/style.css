@@ -17,9 +17,14 @@
 }
 
 .pagination li {
-    background-color: aquamarine;
+    background-color: rgb(219, 250, 216);
     width: 80px;
+    height: 30px;
     list-style-type: none;
+    border-radius: 20px;
+    text-align: center;
+    line-height: 30px;
+    margin: 5px;
 }
 
 .products-grid {
