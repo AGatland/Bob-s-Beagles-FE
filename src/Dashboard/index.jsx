@@ -8,7 +8,7 @@ import ShippingInfo from "./ShippingInfo"
 
 function Dashboard() {
     const productContext = useContext(ProductContext)
-    if (productContext.products.length === 0) return <Loader color="blue" />;
+    if (!productContext.products) return <Loader color="blue" />;
 
     return(
         <div className="dashboard">

@@ -1,13 +1,16 @@
+import { Link } from 'react-router-dom'
 import './style.css'
 import { IconHome, IconDogBowl, IconUser, IconShoppingCart, IconSettings } from '@tabler/icons-react'
 
 function Sidebar() {
     return(
         <nav>
-            <button>
-                <IconHome></IconHome>
-                Home
-            </button>
+            <Link to="/">
+                <button>
+                    <IconHome></IconHome>
+                    Home
+                </button>
+            </Link>
             <button>
                 <IconDogBowl></IconDogBowl>
                 Products
