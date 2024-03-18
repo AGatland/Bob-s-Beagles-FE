@@ -1,15 +1,20 @@
 import './style.css'
 
-function ProductsHeader({products}) {
-    
+function ProductsHeader({products, setCategory, category}) {
+
+    const handleClick = (event) => {
+        setCategory(event.target.name)
+    }
+
+    /*
+      TODO: Make buttons in header change category. Render items in category (render all if All items)
+    */
     return(
         <div className="products-header">
-            <input id="all" type="checkbox"/>
-            <label htmlFor="all">All items</label>
+            <button>All items</button>
             {products.map((product, index) => 
             <>
-                <input key={index} id={product.sku} type="checkbox"/>
-                <label htmlFor={product.sku}>{product.category}</label>
+                <button name={product.category} key={index} onClick={handleClick}>{product.category}</button>
             </>
             )}
         </div>

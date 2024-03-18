@@ -31,13 +31,20 @@ function ProductsList() {
 
     if (!productContext.products) return <Loader color="blue" />;
 
+    /*
+      TODO: Make buttons in header change category. Render items in category (render all if All items)
+    */
     return(
         <div className="products-list-container">
-            <ProductsHeader products={productContext.products} />
+            <ProductsHeader products={productContext.products} setCategory={setCategory} category={category}/>
             <h2>{category}</h2>
             <div className="products-grid">
-            {pagination.currentData && pagination.currentData.map(((product, index) => (
-                <Product className="product-item" key={index} product={product} />)))
+            {pagination.currentData && pagination.currentData.map(((product, index) => 
+                category === "All items" || category === product.category ?
+            (
+                <Product className="product-item" key={index} product={product} />
+            ) : (<></>)
+            ))
             }
             </div>
             <ReactPaginate
