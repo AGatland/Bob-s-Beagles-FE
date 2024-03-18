@@ -1,6 +1,9 @@
 import { IconCalendar, IconClick, IconHeadset, IconShoppingCart, IconTruckDelivery } from "@tabler/icons-react"
 import './style.css'
 
+/*
+    Shows information about shipping
+*/
 function ShippingInfo() {
     return(
         <div className="shipping-info">

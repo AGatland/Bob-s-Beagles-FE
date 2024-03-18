@@ -8,6 +8,7 @@ import ShippingInfo from "./ShippingInfo"
 
 function Dashboard() {
     const productContext = useContext(ProductContext)
+    /* Display a loading circle if products not yet loaded */
     if (!productContext.products) return <Loader color="blue" />;
 
     return(

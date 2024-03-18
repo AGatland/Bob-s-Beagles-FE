@@ -1,7 +1,5 @@
 import { Carousel } from '@mantine/carousel';
 import '@mantine/carousel/styles.css';
-import { useContext, useState, useEffect } from 'react';
-import { ProductContext } from '../../App';
 import CardComponent from './CardComponent';
 
 function NewProducts({products}) {
