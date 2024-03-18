@@ -1,14 +1,38 @@
 .product-item {
-    background-color: darkmagenta;
+    background-color: rgb(242, 250, 242);
     width: 250px;
     margin: 20px;
+    padding: 10px;
+
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    border: 2px solid rgb(113, 233, 133);
+    border-radius: 10%;
 }
 
 .product-item img {
     height: 90px;
     width: 90px;  
+}
+
+.product-item button {
+    background-color: darkgreen;
+    border-radius: 10px;
+    border: none;
+    padding: 5px;
+    color: white;
+    font-size: smaller;
+}
+
+.product-item button:hover {
+    background-color: rgb(104, 224, 164);
+}
+
+.product-item button:active {
+    background-color: rgb(84, 201, 143);
+    color: azure;
+    transform: scale(0.9);
 }
