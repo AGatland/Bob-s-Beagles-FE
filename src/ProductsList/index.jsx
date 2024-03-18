@@ -34,7 +34,6 @@ function ProductsList() {
     return(
         <div className="products-list-container">
             <ProductsHeader products={productContext.products} />
-            <h1>ProductsList</h1>
             <div className="products-grid">
             {pagination.currentData && pagination.currentData.map(((product, index) => (
                 <Product className="product-item" key={index} product={product} />)))
