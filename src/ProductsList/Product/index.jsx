@@ -4,7 +4,7 @@ function Product({product}) {
     return(
         <div className="product-item">
             <img src={product.image_url} />
-            <h4>{product.name}</h4>
+            <p>{product.name}</p>
             <p>{product.price}</p>
             <button>Add to cart</button>
         </div>

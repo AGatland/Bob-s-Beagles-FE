@@ -8,7 +8,7 @@ import ReactPaginate from "react-paginate";
 
 function ProductsList() {
     const productContext = useContext(ProductContext)
-    const [categoryFilters, setCategoryFilters] = useState([])
+    const [category, setCategory] = useState("All items")
     const [pagination, setPagination] = useState({
         data: productContext.products,
         offset: 0,
@@ -34,6 +34,7 @@ function ProductsList() {
     return(
         <div className="products-list-container">
             <ProductsHeader products={productContext.products} />
+            <h2>{category}</h2>
             <div className="products-grid">
             {pagination.currentData && pagination.currentData.map(((product, index) => (
                 <Product className="product-item" key={index} product={product} />)))
