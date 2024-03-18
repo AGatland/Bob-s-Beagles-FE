@@ -4,6 +4,7 @@ import NewProducts from "./NewProducts"
 import './style.css'
 import { paragraph } from "../assets/placeholder"
 import { Loader } from "@mantine/core"
+import ShippingInfo from "./ShippingInfo"
 
 function Dashboard() {
     const productContext = useContext(ProductContext)
@@ -14,6 +15,7 @@ function Dashboard() {
             <h1>Welcome to Bob&apos;s Beagles!</h1>
             <p>{paragraph}</p>
             <NewProducts products={productContext.products}/>
+            <ShippingInfo />
         </div>
     )
 }
