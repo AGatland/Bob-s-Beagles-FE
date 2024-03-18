@@ -1,0 +1,14 @@
+.product-item {
+    background-color: darkmagenta;
+    width: 250px;
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.product-item img {
+    height: 90px;
+    width: 90px;  
+}

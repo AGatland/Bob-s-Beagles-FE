@@ -1,0 +1,22 @@
+.products-header {
+    display: flex;
+    flex-direction: row;
+    flex-shrink: inherit;
+    font-size: 0.8em;
+    overflow: scroll;
+}
+
+.products-header label {
+    margin-top: 0;
+    padding: 3px;
+    background-color: rgb(218, 245, 227);
+    border-left: 1px solid rgb(135, 216, 162);
+}
+
+.products-header input[type=checkbox] {
+    display: none;
+}
+
+.products-header input[type=checkbox]:checked + label {
+    background-color: rgb(135, 216, 162);
+}

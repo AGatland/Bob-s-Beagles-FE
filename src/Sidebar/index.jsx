@@ -11,10 +11,12 @@ function Sidebar() {
                     Home
                 </button>
             </Link>
-            <button>
-                <IconDogBowl></IconDogBowl>
-                Products
-            </button>
+            <Link to="/products">
+                <button>
+                    <IconDogBowl></IconDogBowl>
+                    Products
+                </button>
+            </Link>
             <button>
                 <IconShoppingCart></IconShoppingCart>
                 Basket
