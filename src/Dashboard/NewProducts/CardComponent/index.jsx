@@ -7,16 +7,16 @@ function CardComponent({product}) {
             shadow="md"
             p="xl"
             radius="md"
-            style={{backgroundImage: `url(${product.image_url})`, width: "300px", height: "230px", objectFit: "cover"}}
+            style={{backgroundImage: `url(${product.image_url})`}}
             className="card"
         >
             <div>
-            <Text className="category" size="xs">
-                {product.category}
-            </Text>
-            <Title order={3} className="title">
-            {product.name}
-            </Title>
+                <Text className="category" size="xs">
+                    {product.category}
+                </Text>
+                <Title order={3} className="title">
+                    {product.name}
+                </Title>
             </div>
             <Button variant="white" color="dark">
                 Details

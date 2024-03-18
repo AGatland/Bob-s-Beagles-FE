@@ -3,11 +3,9 @@ import '@mantine/carousel/styles.css';
 import CardComponent from './CardComponent';
 
 function NewProducts({products}) {
-    if (products.length === 0) return <p>Loading...</p>
-
     return(
         <>
-        <h3>New arrivals</h3>
+            <h3>New arrivals</h3>
             <Carousel 
                 withIndicators 
                 slideSize="1%"
