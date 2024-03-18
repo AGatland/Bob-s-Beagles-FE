@@ -5,7 +5,7 @@ function Footer() {
         <footer>
             <div className="footer-col">
                 <p>Hello, Footer!</p>
-                <a href="https://www.youtube.com/watch?v=xvFZjo5PgG0&themeRefresh=1">Follow us</a>
+                <a href="">Follow us</a>
                 <p>Copyright best group</p>
             </div>
             <div className="footer-col">
