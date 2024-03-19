@@ -6,9 +6,14 @@ import './style.css'
 import Product from "./Product";
 import ReactPaginate from "react-paginate";
 
+/*
+  TODO: Change cursor when hovering over buttons to pointer
+*/
 function ProductsList() {
     const productContext = useContext(ProductContext)
     const [category, setCategory] = useState("All items")
+    const [categories, setCategories] = useState([])
+    const [filteredCategories, setFilteredCategories] = useState([])
     const [pagination, setPagination] = useState({
         data: productContext.products,
         offset: 0,
@@ -23,17 +28,19 @@ function ProductsList() {
           currentData: prevState.data.slice(pagination.offset, pagination.offset + pagination.numberPerPage)
         }))
       }, [pagination.numberPerPage, pagination.offset])
+      
       const handlePageClick = event => {
         const selected = event.selected;
         const offset = selected * pagination.numberPerPage
         setPagination({ ...pagination, offset })
       }
 
+      useEffect(() => {
+
+      },[])
+
     if (!productContext.products) return <Loader color="blue" />;
 
-    /*
-      TODO: Make buttons in header change category. Render items in category (render all if All items)
-    */
     return(
         <div className="products-list-container">
             <ProductsHeader products={productContext.products} setCategory={setCategory} category={category}/>
@@ -47,6 +54,7 @@ function ProductsList() {
             ))
             }
             </div>
+            {/* TODO: Find out how to click page numbers by clicking on entire div instead of just the text */}
             <ReactPaginate
                 previousLabel={'Previous'}
                 nextLabel={'Next'}
