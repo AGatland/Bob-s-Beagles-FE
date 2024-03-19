@@ -160,5 +160,22 @@
             "image_url": "https://example.com/bird_food_parakeet_seed_mix.jpg",
             "price": 8.99
         }
+    ],
+    "user": {
+        "id": "123",
+        "email": "johndoe@email.com",
+        "password": "password123"
+    },
+    "basket": [
+        {
+            "userId": "123",
+            "sku": "PET001",
+            "quantity": 2
+        },
+        {
+            "userId": "123",
+            "sku": "PET011",
+            "quantity": 1
+        }
     ]
 }

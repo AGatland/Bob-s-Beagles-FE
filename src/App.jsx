@@ -9,11 +9,14 @@ import { createContext, useEffect, useState } from 'react';
 import Dashboard from './Dashboard';
 import { environment } from './environments/environment';
 import ProductsList from './ProductsList';
+import Basket from './Basket';
 
 const ProductContext = createContext()
+const BasketContext = createContext()
 
 function App() {
   const [products, setProducts] = useState([])
+  const [basket, setBasket] = useState([])
 
   useEffect(() => {
     fetch(`${environment.apiUrl}products`)
@@ -26,6 +29,7 @@ function App() {
   return (
     <MantineProvider>
       <ProductContext.Provider value={{products: products}}>
+      <BasketContext.Provider value={{basket: basket, setBasket: setBasket}}>
         <div className="container">
           <Header></Header>
           <div className="nav-main-container">
@@ -39,13 +43,18 @@ function App() {
                 path="/products"
                 element={<ProductsList />}
               />
+              <Route
+                path="/basket"
+                element={<Basket />}
+              />
             </Routes>
           </div>
           <Footer></Footer>
         </div>
+      </BasketContext.Provider>
       </ProductContext.Provider>
     </MantineProvider>
   )
 }
 
-export {App, ProductContext}
+export {App, ProductContext, BasketContext}
