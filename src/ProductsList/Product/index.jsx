@@ -30,7 +30,6 @@ function Product({product}) {
                 sku: product.sku,
                 quantity: 1
             }]) 
-            console.log("baske now", basketContext.basket)
         }
         else {
             /*
