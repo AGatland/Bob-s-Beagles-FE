@@ -7,6 +7,7 @@ import { environment } from "../../../environments/environment"
 /*
     TODO: Make + and - buttons functional
         If multiple of same item in basket, show once with correct quantity number
+        Price on the right should show singular, AND sum based on quantity
 */
 function BasketListItem({item}) {
     const productContext = useContext(ProductContext)
