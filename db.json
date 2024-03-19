@@ -168,34 +168,22 @@
   },
   "basket": [
     {
-      "id": "0910",
+      "id": "123PET001",
+      "userId": "123",
+      "sku": "PET001",
+      "quantity": 1
+    },
+    {
+      "id": "123PET001",
+      "userId": "123",
+      "sku": "PET001",
+      "quantity": 1
+    },
+    {
+      "id": "123PET002",
       "userId": "123",
       "sku": "PET002",
-      "quantity": 1
-    },
-    {
-      "id": "c943",
-      "userId": "123",
-      "sku": "PET003",
-      "quantity": 1
-    },
-    {
-      "id": "f8d3",
-      "userId": "123",
-      "sku": "PET008",
-      "quantity": 1
-    },
-    {
-      "id": "0950",
-      "userId": "123",
-      "sku": "PET001",
-      "quantity": 1
-    },
-    {
-      "id": "7909",
-      "userId": "123",
-      "sku": "PET001",
-      "quantity": 1
+      "quantity": 2
     }
   ]
 }
