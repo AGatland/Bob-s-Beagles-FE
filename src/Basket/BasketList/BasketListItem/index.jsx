@@ -1,7 +1,6 @@
 import { useContext, useState, useEffect } from "react"
 import { ProductContext } from "../../../App"
 import { Loader } from "@mantine/core"
-import './style.css'
 
 function BasketListItem({item}) {
     const productContext = useContext(ProductContext)

@@ -2,6 +2,7 @@ import { useContext, useEffect } from "react"
 import BasketList from "./BasketList"
 import { environment } from "../environments/environment"
 import { BasketContext } from "../App"
+import './style.css'
 
 function Basket() {
     const basketContext = useContext(BasketContext)
@@ -18,6 +19,7 @@ function Basket() {
         <div className="basket">
             <h1>Basket</h1>
             <BasketList basket={basketContext.basket}></BasketList>
+            <button>Place order</button>
         </div>
     )
 }
