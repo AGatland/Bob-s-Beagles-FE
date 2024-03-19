@@ -23,10 +23,12 @@ function Sidebar() {
           Products
         </button>
       </Link>
-      <button>
-        <IconShoppingCart></IconShoppingCart>
-        Basket
-      </button>
+      <Link to="/basket">
+        <button>
+          <IconShoppingCart></IconShoppingCart>
+          Basket
+        </button>
+      </Link>
       <Link to="/login">
         <button>
           <IconUser></IconUser>
