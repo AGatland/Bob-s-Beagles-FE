@@ -5,15 +5,14 @@ import './style.css'
     TODO: Style category buttons
 */
 function ProductsHeader({products, setCategory, category}) {
-    const [categories, setCategories] = useState([])
+    const [categories, setCategories] = useState(products.map(product => product.category))
     const [filteredCategories, setFilteredCategories] = useState([])
 
     useEffect(() => {
-        setCategories(products.map(product => product.category))
         let temp = new Set()
         categories.forEach(category => temp.add(category))
         setFilteredCategories(Array.from(temp))
-    },[filteredCategories])
+    },[products])
 
     const handleClick = (event) => {
         setCategory(event.target.name)
