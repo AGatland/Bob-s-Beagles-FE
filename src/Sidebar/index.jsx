@@ -17,10 +17,12 @@ function Sidebar() {
                     Products
                 </button>
             </Link>
-            <button>
-                <IconShoppingCart></IconShoppingCart>
-                Basket
-            </button>
+            <Link to="/basket">
+                <button>
+                    <IconShoppingCart></IconShoppingCart>
+                    Basket
+                </button>
+            </Link>
             <button>
                 <IconUser></IconUser>
                 Login
