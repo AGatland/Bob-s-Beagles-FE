@@ -2,7 +2,6 @@ import { useContext } from 'react'
 import './style.css'
 import { BasketContext } from '../../App'
 import { environment } from '../../environments/environment'
-import { version } from 'punycode'
 
 /*
     TODO: When clicking add to basket, show confirmation. Possibly change button from add to basket to [-]<amount>[+] ?
