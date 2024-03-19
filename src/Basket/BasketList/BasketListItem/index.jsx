@@ -14,7 +14,7 @@ function BasketListItem({item}) {
 
     return(
         <li className="basket-list-item">
-            <p>{itemInfo[0].name}</p>
+            <p>[{item.quantity}] {itemInfo[0].name}</p>
             <p>{itemInfo[0].price}</p>
         </li>
     )

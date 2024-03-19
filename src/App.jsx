@@ -13,10 +13,12 @@ import Basket from './Basket';
 
 const ProductContext = createContext()
 const BasketContext = createContext()
+const UserContext = createContext()
 
 function App() {
   const [products, setProducts] = useState([])
   const [basket, setBasket] = useState([])
+  const [user, setUser] = useState({})
 
   useEffect(() => {
     fetch(`${environment.apiUrl}products`)
@@ -30,6 +32,7 @@ function App() {
     <MantineProvider>
       <ProductContext.Provider value={{products: products}}>
       <BasketContext.Provider value={{basket: basket, setBasket: setBasket}}>
+      <UserContext.Provider value={{user: user}}>
         <div className="container">
           <Header></Header>
           <div className="nav-main-container">
@@ -51,6 +54,7 @@ function App() {
           </div>
           <Footer></Footer>
         </div>
+      </UserContext.Provider>
       </BasketContext.Provider>
       </ProductContext.Provider>
     </MantineProvider>
