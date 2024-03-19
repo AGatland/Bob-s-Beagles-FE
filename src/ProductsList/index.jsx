@@ -35,10 +35,6 @@ function ProductsList() {
         setPagination({ ...pagination, offset })
       }
 
-      useEffect(() => {
-
-      },[])
-
     if (!productContext.products) return <Loader color="blue" />;
 
     return(
