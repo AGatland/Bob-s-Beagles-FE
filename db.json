@@ -168,22 +168,10 @@
   },
   "basket": [
     {
-      "id": "123PET001",
+      "id": "123PET004",
       "userId": "123",
-      "sku": "PET001",
-      "quantity": 1
-    },
-    {
-      "id": "123PET001",
-      "userId": "123",
-      "sku": "PET001",
-      "quantity": 1
-    },
-    {
-      "id": "123PET002",
-      "userId": "123",
-      "sku": "PET002",
-      "quantity": 2
+      "sku": "PET004",
+      "quantity": 8
     }
   ]
 }
