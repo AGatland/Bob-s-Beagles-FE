@@ -2,9 +2,9 @@ import { useState, useEffect } from 'react'
 import './style.css'
 
 /*
-    TODO: Style category buttons
+    TODO: Style category buttons. They are not pretty
 */
-function ProductsHeader({products, setCategory, category}) {
+function ProductsHeader({products, setCategory}) {
     const [categories, setCategories] = useState(products.map(product => product.category))
     const [filteredCategories, setFilteredCategories] = useState([])
 

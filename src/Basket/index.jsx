@@ -18,7 +18,7 @@ function Basket() {
     return(
         <div className="basket">
             <h1>Basket</h1>
-            <BasketList basket={basketContext.basket}></BasketList>
+            <BasketList basket={basketContext.basket} setBasket={basketContext.setBasket}></BasketList>
             <button>Place order</button>
         </div>
     )

@@ -5,10 +5,10 @@ import { environment } from '../../environments/environment'
 
 /*
     TODO: When clicking add to basket, show confirmation. Possibly change button from add to basket to [-]<amount>[+] ?
+        When adding existing item, update quantity
 */
 function Product({product}) {
     const basketContext = useContext(BasketContext)
-
 
     const handleClick = (event) => {
         fetch(`${environment.apiUrl}basket`, {

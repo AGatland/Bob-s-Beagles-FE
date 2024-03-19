@@ -1,7 +1,13 @@
 import { useContext, useState, useEffect } from "react"
 import { ProductContext } from "../../../App"
 import { Loader } from "@mantine/core"
+import { environment } from "../../../environments/environment"
 
+
+/*
+    TODO: Make + and - buttons functional
+        If multiple of same item in basket, show once with correct quantity number
+*/
 function BasketListItem({item}) {
     const productContext = useContext(ProductContext)
     const [itemInfo, setItemInfo] = useState({})
@@ -14,8 +20,10 @@ function BasketListItem({item}) {
 
     return(
         <li className="basket-list-item">
-            <p>[{item.quantity}] {itemInfo[0].name}</p>
-            <p>{itemInfo[0].price}</p>
+            <p>{itemInfo[0].name}</p>
+            <p>
+                <button name="remove">-</button> {item.quantity} <button name="add">+</button> {itemInfo[0].price}
+            </p>
         </li>
     )
 }

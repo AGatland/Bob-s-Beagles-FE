@@ -3,7 +3,10 @@ import './style.css'
 import { useContext, useState, useEffect } from "react"
 import { ProductContext } from "../../App"
 
-function BasketList({basket}) {
+/*
+    TODO: Make "Place Order" button functional
+*/
+function BasketList({basket, setBasket}) {
     const productContext = useContext(ProductContext)
     const [total, setTotal] = useState(0.0)
 
@@ -13,13 +16,13 @@ function BasketList({basket}) {
             let item = productContext.products.filter((product) => product.sku === b.sku)
             if(item[0]) tempTotal += item[0].price * b.quantity
         })
-        setTotal(tempTotal)
+        setTotal(Math.round(tempTotal * 100) / 100)
     }, [basket])
 
     return(
         <ul className="basket-list">
             {basket.map((item, index) => (
-                <BasketListItem key={index} item={item}></BasketListItem>
+                <BasketListItem key={index} item={item} setBasket={setBasket} basket={basket}></BasketListItem>
             ))}
             <li>
                 <p>Total:</p> 
