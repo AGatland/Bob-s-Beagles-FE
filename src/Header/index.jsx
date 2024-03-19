@@ -4,7 +4,7 @@ import './style.css'
 function Header() {
     return(
         <header>
-            <h1>Boba&pos;s Beagles</h1>
+            <h1>Bob&apos;s Beagles</h1>
             <IconDog></IconDog>
         </header>
     )

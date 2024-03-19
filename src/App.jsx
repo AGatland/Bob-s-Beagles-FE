@@ -8,6 +8,7 @@ import Footer from './Footer';
 import { createContext, useEffect, useState } from 'react';
 import Dashboard from './Dashboard';
 import { environment } from './environments/environment';
+import ProductsList from './ProductsList';
 
 const ProductContext = createContext()
 
@@ -34,6 +35,10 @@ function App() {
                 path="/"
                 element={<Dashboard />}
                 />
+              <Route
+                path="/products"
+                element={<ProductsList />}
+              />
             </Routes>
           </div>
           <Footer></Footer>

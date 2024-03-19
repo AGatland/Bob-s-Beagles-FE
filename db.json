@@ -1,11 +1,10 @@
 {
-    "products": 
-    [
+    "products": [
         {
             "sku": "PET001",
             "name": "Cat Food - Salmon Flavor",
             "description": "High-quality cat food with real salmon for a healthy and balanced diet.",
-            "category": "Cat Food",
+            "category": "Cat",
             "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Cat_and_Cat_Foods.jpg/1200px-Cat_and_Cat_Foods.jpg",
             "price": 15.99
         },
@@ -13,7 +12,7 @@
             "sku": "PET002",
             "name": "Dog Chew Toy - Rubber Bone",
             "description": "Durable rubber bone toy for dogs, perfect for chewing and playing.",
-            "category": "Dog Toys",
+            "category": "Dog",
             "image_url": "https://keyassets.timeincuk.net/inspirewp/live/wp-content/uploads/sites/14/2022/10/dog-with-chew-ALAMY-920x518-1.jpeg",
             "price": 9.99
         },
@@ -21,7 +20,7 @@
             "sku": "PET003",
             "name": "Fish Tank - 10 Gallon",
             "description": "Spacious glass fish tank suitable for freshwater and saltwater fish.",
-            "category": "Fish Supplies",
+            "category": "Fish",
             "image_url": "https://www.freshwatersystems.com/cdn/shop/articles/reef-aquarium_1024x1024.jpg?v=1682016385",
             "price": 49.99
         },
@@ -29,7 +28,7 @@
             "sku": "PET004",
             "name": "Bird Cage - Medium Size",
             "description": "Medium-sized bird cage with perches and feeding cups.",
-            "category": "Bird Supplies",
+            "category": "Bird",
             "image_url": "https://assets.wfcdn.com/im/57679659/compr-r85/2471/247198253/63cm-pointed-top-table-top-bird-cage-with-perch.jpg",
             "price": 39.99
         },
@@ -37,7 +36,7 @@
             "sku": "PET005",
             "name": "Hamster Wheel - Silent Spinner",
             "description": "Silent spinning wheel for hamsters, providing exercise and entertainment.",
-            "category": "Small Animal Accessories",
+            "category": "Small Animal",
             "image_url": "https://www.proshop.no/Images/915x900/3046004_ad961b3903f6.jpg",
             "price": 12.99
         },
@@ -45,7 +44,7 @@
             "sku": "PET006",
             "name": "Cat Litter - Clumping Formula",
             "description": "Clumping cat litter for easy cleaning and odor control.",
-            "category": "Cat Litter & Accessories",
+            "category": "Cat",
             "image_url": "https://www.zooplus.co.uk/magazine/wp-content/uploads/2020/09/kitten-using-kitten-toilet-768x512.jpeg",
             "price": 17.99
         },
@@ -53,7 +52,7 @@
             "sku": "PET007",
             "name": "Dog Collar - Adjustable Nylon",
             "description": "Adjustable nylon dog collar with sturdy buckle and D-ring for leash attachment.",
-            "category": "Dog Accessories",
+            "category": "Dog",
             "image_url": "https://assets.hermes.com/is/image/hermesproduct/medor-paille-ii-dog-collar--800548EJ3O-worn-1-0-0-1000-1000_g.jpg",
             "price": 8.99
         },
@@ -61,7 +60,7 @@
             "sku": "PET008",
             "name": "Fish Food - Tropical Flakes",
             "description": "Nutritious tropical fish flakes for vibrant colors and healthy growth.",
-            "category": "Fish Food",
+            "category": "Fish",
             "image_url": "https://cdn.shopify.com/s/files/1/2307/4917/files/81HKOnX74qL._AC_SL1500_600x600.jpg?v=1647257349",
             "price": 6.49
         },
@@ -69,7 +68,7 @@
             "sku": "PET009",
             "name": "Bird Perch - Wooden Branch",
             "description": "Natural wooden bird perch to simulate a natural environment for birds.",
-            "category": "Bird Accessories",
+            "category": "Bird",
             "image_url": "https://khpet.com/cdn/shop/products/9010.9011.9012_2500x2500_300dpi_REV1_700x700.jpg?v=1624990833",
             "price": 5.99
         },
@@ -77,7 +76,7 @@
             "sku": "PET010",
             "name": "Rabbit Hutch - Two Levels",
             "description": "Two-level rabbit hutch with ramp for easy access between levels.",
-            "category": "Rabbit Supplies",
+            "category": "Rabbit",
             "image_url": "https://example.com/rabbit_hutch_two_levels.jpg",
             "price": 79.99
         },
@@ -85,7 +84,7 @@
             "sku": "PET011",
             "name": "Dog Bed - Orthopedic Memory Foam",
             "description": "Orthopedic memory foam dog bed for superior comfort and support.",
-            "category": "Dog Beds",
+            "category": "Dog",
             "image_url": "https://example.com/dog_bed_orthopedic_memory_foam.jpg",
             "price": 34.99
         },
@@ -93,7 +92,7 @@
             "sku": "PET012",
             "name": "Cat Toy - Feather Wand",
             "description": "Interactive feather wand toy for cats, encouraging exercise and play.",
-            "category": "Cat Toys",
+            "category": "Cat",
             "image_url": "https://example.com/cat_toy_feather_wand.jpg",
             "price": 7.99
         },
@@ -101,7 +100,7 @@
             "sku": "PET013",
             "name": "Guinea Pig Cage - Indoor Starter Kit",
             "description": "Starter kit for indoor guinea pig care, including cage, bedding, and food bowl.",
-            "category": "Small Animal Supplies",
+            "category": "Small Animal",
             "image_url": "https://example.com/guinea_pig_cage_starter_kit.jpg",
             "price": 59.99
         },
@@ -109,7 +108,7 @@
             "sku": "PET014",
             "name": "Turtle Food - Floating Pellets",
             "description": "Floating pellets for aquatic turtles, providing essential nutrients.",
-            "category": "Reptile Food",
+            "category": "Reptile",
             "image_url": "https://example.com/turtle_food_floating_pellets.jpg",
             "price": 11.99
         },
@@ -117,7 +116,7 @@
             "sku": "PET015",
             "name": "Dog Shampoo - Oatmeal Formula",
             "description": "Gentle oatmeal formula dog shampoo for sensitive skin, leaving coat soft and shiny.",
-            "category": "Dog Grooming",
+            "category": "Dog",
             "image_url": "https://example.com/dog_shampoo_oatmeal_formula.jpg",
             "price": 12.99
         },
@@ -125,7 +124,7 @@
             "sku": "PET016",
             "name": "Reptile Heat Lamp - Ceramic Infrared",
             "description": "Ceramic infrared heat lamp for reptiles, providing essential warmth.",
-            "category": "Reptile Supplies",
+            "category": "Reptile",
             "image_url": "https://example.com/reptile_heat_lamp_ceramic_infrared.jpg",
             "price": 16.99
         },
@@ -133,7 +132,7 @@
             "sku": "PET017",
             "name": "Cat Carrier - Soft-Sided",
             "description": "Soft-sided cat carrier with mesh panels for ventilation and comfort during travel.",
-            "category": "Cat Carriers & Crates",
+            "category": "Cat",
             "image_url": "https://example.com/cat_carrier_soft_sided.jpg",
             "price": 29.99
         },
@@ -141,7 +140,7 @@
             "sku": "PET018",
             "name": "Dog Treats - Bacon Flavor",
             "description": "Delicious bacon-flavored dog treats, perfect for training or rewarding.",
-            "category": "Dog Treats",
+            "category": "Dog",
             "image_url": "https://example.com/dog_treats_bacon_flavor.jpg",
             "price": 5.49
         },
@@ -149,7 +148,7 @@
             "sku": "PET019",
             "name": "Small Animal Cage - Wire Habitat",
             "description": "Wire habitat cage for small animals like rabbits, guinea pigs, or ferrets.",
-            "category": "Small Animal Supplies",
+            "category": "Small Animal",
             "image_url": "https://example.com/small_animal_cage_wire_habitat.jpg",
             "price": 49.99
         },
@@ -157,7 +156,7 @@
             "sku": "PET020",
             "name": "Bird Food - Parakeet Seed Mix",
             "description": "Nutritious seed mix for parakeets, providing essential vitamins and minerals.",
-            "category": "Bird Food",
+            "category": "Bird",
             "image_url": "https://example.com/bird_food_parakeet_seed_mix.jpg",
             "price": 8.99
         }

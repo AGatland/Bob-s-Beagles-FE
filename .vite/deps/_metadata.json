@@ -1,0 +1,55 @@
+{
+  "hash": "5ec251a5",
+  "configHash": "4c152b4d",
+  "lockfileHash": "4b001e04",
+  "browserHash": "0f4c245b",
+  "optimized": {
+    "react": {
+      "src": "../../node_modules/react/index.js",
+      "file": "react.js",
+      "fileHash": "4cc36ffa",
+      "needsInterop": true
+    },
+    "react-dom/client": {
+      "src": "../../node_modules/react-dom/client.js",
+      "file": "react-dom_client.js",
+      "fileHash": "b5cc037a",
+      "needsInterop": true
+    },
+    "react-router-dom": {
+      "src": "../../node_modules/react-router-dom/dist/index.js",
+      "file": "react-router-dom.js",
+      "fileHash": "3223a834",
+      "needsInterop": false
+    },
+    "@mantine/core": {
+      "src": "../../node_modules/@mantine/core/esm/index.mjs",
+      "file": "@mantine_core.js",
+      "fileHash": "96e67e4f",
+      "needsInterop": false
+    },
+    "@tabler/icons-react": {
+      "src": "../../node_modules/@tabler/icons-react/dist/esm/tabler-icons-react.mjs",
+      "file": "@tabler_icons-react.js",
+      "fileHash": "d115e4dd",
+      "needsInterop": false
+    },
+    "@mantine/carousel": {
+      "src": "../../node_modules/@mantine/carousel/esm/index.mjs",
+      "file": "@mantine_carousel.js",
+      "fileHash": "36fdb80b",
+      "needsInterop": false
+    }
+  },
+  "chunks": {
+    "chunk-X5W4TYRF": {
+      "file": "chunk-X5W4TYRF.js"
+    },
+    "chunk-DHEZ6HTF": {
+      "file": "chunk-DHEZ6HTF.js"
+    },
+    "chunk-5VW2NNEB": {
+      "file": "chunk-5VW2NNEB.js"
+    }
+  }
+}

@@ -1,0 +1,45 @@
+.product-item {
+    width: 250px;
+    margin: 10px;
+    padding: 10px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    border: 1px solid rgb(113, 233, 133);
+}
+
+.product-item p {
+    
+}
+
+.product-item img {
+    height: 200px;
+    width: 200px;  
+    object-fit: cover;
+}
+
+.product-item button {
+    background-color: darkgreen;
+    border-radius: 10px;
+    border: none;
+    padding: 5px;
+    color: white;
+    font-size: smaller;
+    transition: 200ms;
+}
+
+.product-item button:hover {
+    background-color: rgb(164, 236, 200);
+    color: black;
+    transition: 200ms;
+}
+
+.product-item button:active {
+    background-color: rgb(84, 201, 143);
+    color: rgb(26, 31, 31);
+    transform: scale(0.9);
+    transition: 10ms;
+}
