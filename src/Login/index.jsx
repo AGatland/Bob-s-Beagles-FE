@@ -5,7 +5,7 @@ import { AuthContext } from "../App";
 import { environment } from "../environments/environment";
 
 function Login() {
-  const { user, login } = useContext(AuthContext);
+  const { user, login, logout } = useContext(AuthContext);
 
   const [loginDetails, setLoginDetails] = useState({
     username: "",
@@ -24,9 +24,10 @@ function Login() {
     login(data.user, data.token);
   }
 
-  // redirect to homepage if already logged in
+  // log out and redirect to homepage if already logged in
   useEffect(() => {
     if (user) {
+      logout();
       navigate("/");
     }
   }, [user, navigate]);

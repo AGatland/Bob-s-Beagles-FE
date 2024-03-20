@@ -7,8 +7,11 @@ import {
   IconShoppingCart,
   IconSettings,
 } from "@tabler/icons-react";
+import { useContext } from "react";
+import { AuthContext } from "../App";
 
 function Sidebar() {
+  const { user } = useContext(AuthContext);
   return (
     <nav>
       <Link to="/">
@@ -32,7 +35,7 @@ function Sidebar() {
       <Link to="/login">
         <button>
           <IconUser></IconUser>
-          Login
+          {user ? "LogOut" : "LogIn"}
         </button>
       </Link>
       <button>
