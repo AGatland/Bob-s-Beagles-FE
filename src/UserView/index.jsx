@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 import "./styles.css"
 import UserIcon from "../UserIcon";
@@ -59,8 +59,11 @@ export default function UserView() {
         <div className="profile-view-container main">
             <div className="profile-view-info-container">
                 <div className="profile-view-info-header">
-                    <UserIcon userToIcon={userToView}/>
-                    <h1>{userToView.firstName} {userToView.lastName}</h1>
+                    <div>
+                        <UserIcon userToIcon={userToView}/>
+                        <h1>{userToView.firstName} {userToView.lastName}</h1>
+                    </div>
+                    <h1 className="profile-view-orders"><Link to="orders">View Orders</Link></h1>
                 </div>
                 <UserForm userToView={userToView} updateUserInfo={updateUserInfo}/>
             </div>

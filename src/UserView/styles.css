@@ -12,8 +12,24 @@
 .profile-view-info-header {
     display: flex;
     align-items: center;
+    justify-content: space-between;
 }
 
-.profile-view-info-header > h1 {
+.profile-view-info-header > div {
+    display: flex;
+    align-items: center;
+}
+
+.profile-view-info-header > div > h1 {
     margin-left: 15px;
+}
+
+.profile-view-info-header > h1 > a {
+    text-decoration: none;
+    color: black;
+    transition: color 0.3s ease;
+}
+
+.profile-view-info-header > h1:hover > a {
+    color: rgb(10, 219, 90);
 }
