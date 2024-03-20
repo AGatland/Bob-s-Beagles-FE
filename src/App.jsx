@@ -12,6 +12,7 @@ import ProductsList from "./ProductsList";
 import Basket from "./Basket";
 import Login from "./Login";
 import Signup from "./Signup";
+import ProductView from './ProductView';
 
 const ProductContext = createContext();
 const BasketContext = createContext();
@@ -47,6 +48,8 @@ function App() {
                   <Route path="/basket" element={<Basket />} />
                   <Route path="/login" element={<Login />} />
                   <Route path="/signup" element={<Signup />} />
+                  <Route path="/products/:id" element={<ProductView />}
+              />
                 </Routes>
               </div>
               <Footer></Footer>

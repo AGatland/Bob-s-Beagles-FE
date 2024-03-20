@@ -1,16 +1,20 @@
-import { useContext } from 'react'
+import { useParams } from 'react-router'
 import './style.css'
-import { BasketContext } from '../../App'
-import { environment } from '../../environments/environment'
-import { Link } from 'react-router-dom'
+import { environment } from '../environments/environment'
+import { useContext, useEffect, useState } from 'react'
+import { Loader } from '@mantine/core'
+import { BasketContext } from '../App'
 
-/*
-    TODO: When clicking add to basket, show confirmation. Possibly change button from add to basket to [-]<amount>[+] ?
-        When adding existing item, update quantity
-        Replace placeholder values with userid
-*/
-function Product({product}) {
+function ProductView() {
+    const [product, setProduct] = useState({})
     const basketContext = useContext(BasketContext)
+
+    let { id } = useParams()
+    useEffect(() => {
+        fetch(`${environment.apiUrl}products/${id}`)
+            .then(response => response.json())
+            .then(setProduct)
+    }, [])
 
     const handleClick = (event) => {
         if (basketContext.basket.filter(b => b.sku === product.sku).length === 0)
@@ -56,16 +60,25 @@ function Product({product}) {
         }
     }
 
+    if(!product) return <Loader color="blue" />
+
     return(
-        <div className="product-item">
-            <Link to={`/products/${product.sku}`}>
-                <img src={product.image_url} />
-                <p>{product.name}</p>
-                <p>£{product.price}</p>
-                <button onClick={handleClick}>Add to cart</button>
-            </Link>
+        <div className="product-view">
+            <img src={product.image_url} />
+            <div className="product-view-details">
+                <div className="product-view-details-top-bottom">
+                    <div>
+                        <h3>{product.name}</h3>
+                        <p>{product.description}</p>
+                    </div>
+                    <div>
+                        <h4>£{product.price}</h4>
+                        <button onClick={handleClick}>Add to Basket</button>
+                    </div>
+                </div>
+            </div>
         </div>
     )
 }
 
-export default Product
+export default ProductView

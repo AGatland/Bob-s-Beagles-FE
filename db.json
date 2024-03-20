@@ -1,6 +1,7 @@
 {
   "products": [
     {
+      "id": "PET001",
       "sku": "PET001",
       "name": "Cat Food - Salmon Flavor",
       "description": "High-quality cat food with real salmon for a healthy and balanced diet.",
@@ -14,7 +15,8 @@
       "description": "Durable rubber bone toy for dogs, perfect for chewing and playing.",
       "category": "Dog",
       "image_url": "https://keyassets.timeincuk.net/inspirewp/live/wp-content/uploads/sites/14/2022/10/dog-with-chew-ALAMY-920x518-1.jpeg",
-      "price": 9.99
+      "price": 9.99,
+      "id": "b254"
     },
     {
       "sku": "PET003",
@@ -22,7 +24,8 @@
       "description": "Spacious glass fish tank suitable for freshwater and saltwater fish.",
       "category": "Fish",
       "image_url": "https://www.freshwatersystems.com/cdn/shop/articles/reef-aquarium_1024x1024.jpg?v=1682016385",
-      "price": 49.99
+      "price": 49.99,
+      "id": "705c"
     },
     {
       "sku": "PET004",
@@ -30,7 +33,8 @@
       "description": "Medium-sized bird cage with perches and feeding cups.",
       "category": "Bird",
       "image_url": "https://assets.wfcdn.com/im/57679659/compr-r85/2471/247198253/63cm-pointed-top-table-top-bird-cage-with-perch.jpg",
-      "price": 39.99
+      "price": 39.99,
+      "id": "2c53"
     },
     {
       "sku": "PET005",
@@ -38,7 +42,8 @@
       "description": "Silent spinning wheel for hamsters, providing exercise and entertainment.",
       "category": "Small Animal",
       "image_url": "https://www.proshop.no/Images/915x900/3046004_ad961b3903f6.jpg",
-      "price": 12.99
+      "price": 12.99,
+      "id": "772c"
     },
     {
       "sku": "PET006",
@@ -46,7 +51,8 @@
       "description": "Clumping cat litter for easy cleaning and odor control.",
       "category": "Cat",
       "image_url": "https://www.zooplus.co.uk/magazine/wp-content/uploads/2020/09/kitten-using-kitten-toilet-768x512.jpeg",
-      "price": 17.99
+      "price": 17.99,
+      "id": "a20b"
     },
     {
       "sku": "PET007",
@@ -54,7 +60,8 @@
       "description": "Adjustable nylon dog collar with sturdy buckle and D-ring for leash attachment.",
       "category": "Dog",
       "image_url": "https://assets.hermes.com/is/image/hermesproduct/medor-paille-ii-dog-collar--800548EJ3O-worn-1-0-0-1000-1000_g.jpg",
-      "price": 8.99
+      "price": 8.99,
+      "id": "f335"
     },
     {
       "sku": "PET008",
@@ -62,7 +69,8 @@
       "description": "Nutritious tropical fish flakes for vibrant colors and healthy growth.",
       "category": "Fish",
       "image_url": "https://cdn.shopify.com/s/files/1/2307/4917/files/81HKOnX74qL._AC_SL1500_600x600.jpg?v=1647257349",
-      "price": 6.49
+      "price": 6.49,
+      "id": "2e2c"
     },
     {
       "sku": "PET009",
@@ -70,7 +78,8 @@
       "description": "Natural wooden bird perch to simulate a natural environment for birds.",
       "category": "Bird",
       "image_url": "https://khpet.com/cdn/shop/products/9010.9011.9012_2500x2500_300dpi_REV1_700x700.jpg?v=1624990833",
-      "price": 5.99
+      "price": 5.99,
+      "id": "6aa7"
     },
     {
       "sku": "PET010",
@@ -78,7 +87,8 @@
       "description": "Two-level rabbit hutch with ramp for easy access between levels.",
       "category": "Rabbit",
       "image_url": "https://example.com/rabbit_hutch_two_levels.jpg",
-      "price": 79.99
+      "price": 79.99,
+      "id": "95cb"
     },
     {
       "sku": "PET011",
@@ -86,7 +96,8 @@
       "description": "Orthopedic memory foam dog bed for superior comfort and support.",
       "category": "Dog",
       "image_url": "https://example.com/dog_bed_orthopedic_memory_foam.jpg",
-      "price": 34.99
+      "price": 34.99,
+      "id": "4d49"
     },
     {
       "sku": "PET012",
@@ -94,7 +105,8 @@
       "description": "Interactive feather wand toy for cats, encouraging exercise and play.",
       "category": "Cat",
       "image_url": "https://example.com/cat_toy_feather_wand.jpg",
-      "price": 7.99
+      "price": 7.99,
+      "id": "e8c3"
     },
     {
       "sku": "PET013",
@@ -102,7 +114,8 @@
       "description": "Starter kit for indoor guinea pig care, including cage, bedding, and food bowl.",
       "category": "Small Animal",
       "image_url": "https://example.com/guinea_pig_cage_starter_kit.jpg",
-      "price": 59.99
+      "price": 59.99,
+      "id": "4522"
     },
     {
       "sku": "PET014",
@@ -110,7 +123,8 @@
       "description": "Floating pellets for aquatic turtles, providing essential nutrients.",
       "category": "Reptile",
       "image_url": "https://example.com/turtle_food_floating_pellets.jpg",
-      "price": 11.99
+      "price": 11.99,
+      "id": "2842"
     },
     {
       "sku": "PET015",
@@ -118,7 +132,8 @@
       "description": "Gentle oatmeal formula dog shampoo for sensitive skin, leaving coat soft and shiny.",
       "category": "Dog",
       "image_url": "https://example.com/dog_shampoo_oatmeal_formula.jpg",
-      "price": 12.99
+      "price": 12.99,
+      "id": "c6bf"
     },
     {
       "sku": "PET016",
@@ -126,7 +141,8 @@
       "description": "Ceramic infrared heat lamp for reptiles, providing essential warmth.",
       "category": "Reptile",
       "image_url": "https://example.com/reptile_heat_lamp_ceramic_infrared.jpg",
-      "price": 16.99
+      "price": 16.99,
+      "id": "d128"
     },
     {
       "sku": "PET017",
@@ -134,7 +150,8 @@
       "description": "Soft-sided cat carrier with mesh panels for ventilation and comfort during travel.",
       "category": "Cat",
       "image_url": "https://example.com/cat_carrier_soft_sided.jpg",
-      "price": 29.99
+      "price": 29.99,
+      "id": "ce31"
     },
     {
       "sku": "PET018",
@@ -142,7 +159,8 @@
       "description": "Delicious bacon-flavored dog treats, perfect for training or rewarding.",
       "category": "Dog",
       "image_url": "https://example.com/dog_treats_bacon_flavor.jpg",
-      "price": 5.49
+      "price": 5.49,
+      "id": "60c2"
     },
     {
       "sku": "PET019",
@@ -150,7 +168,8 @@
       "description": "Wire habitat cage for small animals like rabbits, guinea pigs, or ferrets.",
       "category": "Small Animal",
       "image_url": "https://example.com/small_animal_cage_wire_habitat.jpg",
-      "price": 49.99
+      "price": 49.99,
+      "id": "60b5"
     },
     {
       "sku": "PET020",
@@ -158,7 +177,8 @@
       "description": "Nutritious seed mix for parakeets, providing essential vitamins and minerals.",
       "category": "Bird",
       "image_url": "https://example.com/bird_food_parakeet_seed_mix.jpg",
-      "price": 8.99
+      "price": 8.99,
+      "id": "04f6"
     }
   ],
   "user": {
@@ -168,10 +188,10 @@
   },
   "basket": [
     {
-      "id": "123PET004",
+      "id": "123PET001",
       "userId": "123",
-      "sku": "PET004",
-      "quantity": 8
+      "sku": "PET001",
+      "quantity": 20
     }
   ]
 }

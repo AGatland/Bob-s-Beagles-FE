@@ -102,7 +102,7 @@ function BasketListItem({item}) {
         <li className="basket-list-item">
             <p>{itemInfo[0].name}</p>
             <p>
-                <button name="remove" onClick={handleClick}>-</button> {item.quantity} <button name="add" onClick={handleClick}>+</button> {itemInfo[0].price}
+                <button name="remove" onClick={handleClick}>-</button> {item.quantity} <button name="add" onClick={handleClick}>+</button> £{itemInfo[0].price}
             </p>
         </li>
     )

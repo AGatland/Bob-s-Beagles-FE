@@ -1,5 +1,6 @@
 import { Button, Paper, Text, Title } from "@mantine/core"
 import './style.css'
+import { Link } from "react-router-dom"
 
 function CardComponent({product}) {
     return(
@@ -19,7 +20,7 @@ function CardComponent({product}) {
                 </Title>
             </div>
             <Button variant="white" color="dark">
-                Details
+                <Link to={`/products/${product.sku}`}>Details</Link>
             </Button>
         </Paper>
     )

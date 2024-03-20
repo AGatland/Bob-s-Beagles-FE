@@ -26,7 +26,7 @@ function BasketList({basket, setBasket}) {
             ))}
             <li>
                 <p>Total:</p> 
-                <p>{total}</p>
+                <p>£{total}</p>
             </li>
         </ul>
     )
