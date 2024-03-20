@@ -3,11 +3,12 @@ import './style.css'
 import { environment } from '../environments/environment'
 import { useContext, useEffect, useState } from 'react'
 import { Loader } from '@mantine/core'
-import { BasketContext } from '../App'
+import { AuthContext, BasketContext } from '../App'
 
 function ProductView() {
     const [product, setProduct] = useState({})
     const basketContext = useContext(BasketContext)
+    const authContext = useContext(AuthContext)
 
     let { id } = useParams()
     useEffect(() => {
@@ -21,49 +22,45 @@ function ProductView() {
           })
             .then(response => response.json())
             .then(setProduct)
-    }, [])
+    }, [id])
 
     const handleClick = (event) => {
-        if (basketContext.basket.filter(b => b.sku === product.sku).length === 0)
+        if (basketContext.basket.data && basketContext.basket.data.filter(b => b.sku === product.data.sku).length === 0)
         {
-            fetch(`${environment.devUrl}basket`, {
+            fetch(`${environment.apiUrl}basket/${authContext.user.id}`, {
                 method: 'POST',
-                header: [{'Content-Type': 'application/json'}],
+                headers: {
+                    'Authorization': `Bearer ${localStorage.getItem("authToken")}`,
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                  },
                 body: JSON.stringify({
-                    id: "123" + product.sku, /* To stop json-server from creating id */
-                    userId: "123",
-                    sku: product.sku,
+                    sku: product.data.sku,
                     quantity: 1
                 })
             })
-            basketContext.setBasket([...basketContext.basket, {
-                id: "123" + product.sku, /* To stop json-server from creating id */
-                userId: "123",
-                sku: product.sku,
-                quantity: 1
-            }]) 
+                .then(response => response.json())
+                .then(basketContext.setBasket)
         }
-        else {
+        else if (basketContext.basket.data) {
             /*
                 TODO: EDIT ID so it's not a hardcoded placeholder but comes from the url!!
             */
-            let itemQuantity = basketContext.basket.filter(b => b.sku === product.sku)
-            fetch(`${environment.devUrl}basket/123${product.sku}`, {
+            let itemQuantity = basketContext.basket.data.filter(b => b.sku === product.data.sku)
+            fetch(`${environment.apiUrl}basket/${authContext.user.id}`, {
                 method: 'PUT',
-                header: [{'Content-Type': 'application/json'}],
+                headers: {
+                    'Authorization': `Bearer ${localStorage.getItem("authToken")}`,
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                  },
                 body: JSON.stringify({
-                    id: "123" + product.sku, /* To stop json-server from creating id */
-                    userId: "123",
-                    sku: product.sku,
+                    sku: product.data.sku,
                     quantity: itemQuantity[0].quantity + 1
                 })
             })
-            basketContext.setBasket([...basketContext.basket, {
-                id: "123" + product.sku, /* To stop json-server from creating id */
-                userId: "123",
-                sku: product.sku,
-                quantity: 1
-            }])
+                .then(response => response.json())
+                .then(basketContext.setBasket)
         }
     }
 

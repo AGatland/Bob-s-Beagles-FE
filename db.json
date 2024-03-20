@@ -214,6 +214,17 @@
       "id": "123undefined",
       "userId": "123",
       "quantity": 1
+    },
+    {
+      "id": "123undefined",
+      "userId": "123",
+      "quantity": 1
+    },
+    {
+      "id": "1233",
+      "userId": "123",
+      "sku": 3,
+      "quantity": 1
     }
   ]
 }

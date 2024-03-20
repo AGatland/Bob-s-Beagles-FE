@@ -59,6 +59,8 @@ function App() {
     };
 
   useEffect(() => {
+
+
     if(user)
     {    const getProducts = async () => {
           const response = await fetch(`${environment.apiUrl}products`, {
@@ -73,9 +75,20 @@ function App() {
           setProducts(products)
         }
         getProducts()
+        
+        fetch(`${environment.apiUrl}basket/${user.id}`, {
+          Method: 'GET',
+          headers: {
+            'Authorization': `Bearer ${localStorage.getItem("authToken")}`,
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+          },
+        })
+          .then(response => response.json())
+          .then(setBasket)
     }
     if (!user) navigate("/login")
-  }, [user]);
+  }, [navigate, user]);
 
   if(!products.data && user) return <h1>Loading</h1>
 
