@@ -6,9 +6,9 @@ import './style.css'
 function Basket() {
     const basketContext = useContext(BasketContext)
 
-    const handleClick = (event) => {
-        fetch()
-    }
+    /*
+        TODO: Place order on button click
+    */
 
     return(
         <div className="basket">
