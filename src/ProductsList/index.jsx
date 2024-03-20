@@ -1,16 +1,19 @@
 import { useContext, useState, useEffect } from "react"
-import { ProductContext } from "../App";
+import { AuthContext, ProductContext } from "../App";
 import { Loader } from "@mantine/core";
 import ProductsHeader from "./ProductsHeader";
 import './style.css'
 import Product from "./Product";
 import ReactPaginate from "react-paginate";
+import { useNavigate } from "react-router-dom";
 
 /*
   TODO: Change cursor when hovering over buttons to pointer
 */
 function ProductsList() {
     const productContext = useContext(ProductContext)
+    const authContext = useContext(AuthContext)
+    const navigate = useNavigate()
     const [category, setCategory] = useState("All items")
     const [categories, setCategories] = useState([])
     const [filteredCategories, setFilteredCategories] = useState([])
@@ -22,18 +25,18 @@ function ProductsList() {
     });
 
     useEffect(() => {
-        setPagination((prevState) => ({
-          ...prevState,
-          pageCount: prevState.data.length / prevState.numberPerPage,
-          currentData: prevState.data.slice(pagination.offset, pagination.offset + pagination.numberPerPage)
-        }))
-      }, [pagination.numberPerPage, pagination.offset])
+      setPagination((prevState) => ({
+        ...prevState,
+        pageCount: prevState.data.length / prevState.numberPerPage,
+        currentData: prevState.data.slice(pagination.offset, pagination.offset + pagination.numberPerPage)
+      }))
+    }, [pagination.numberPerPage, pagination.offset])
       
-      const handlePageClick = event => {
-        const selected = event.selected;
-        const offset = selected * pagination.numberPerPage
-        setPagination({ ...pagination, offset })
-      }
+    const handlePageClick = event => {
+      const selected = event.selected;
+      const offset = selected * pagination.numberPerPage
+      setPagination({ ...pagination, offset })
+    }
 
     if (!productContext.products) return <Loader color="blue" />;
 
