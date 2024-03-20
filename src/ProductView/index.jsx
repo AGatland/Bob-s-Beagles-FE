@@ -14,7 +14,7 @@ function ProductView() {
         fetch(`${environment.apiUrl}products/${id}`, {
             Method: 'GET',
             headers: {
-              'Authorization': `Bearer ${localStorage.getItem("token")}`,
+              'Authorization': `Bearer ${localStorage.getItem("authToken")}`,
               'Accept': 'application/json',
               'Content-Type': 'application/json',
             },
