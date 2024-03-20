@@ -39,13 +39,9 @@ function ProductView() {
                     quantity: 1
                 })
             })
-                .then(response => response.json())
-                .then(basketContext.setBasket)
+            basketContext.setBasket({status: "success", data: basketContext.basket.data.map((b) => b.sku === product.data.sku ? {sku: b.sku, quantity: 1} : b)})
         }
         else if (basketContext.basket.data) {
-            /*
-                TODO: EDIT ID so it's not a hardcoded placeholder but comes from the url!!
-            */
             let itemQuantity = basketContext.basket.data.filter(b => b.sku === product.data.sku)
             fetch(`${environment.apiUrl}basket/${authContext.user.id}`, {
                 method: 'PUT',
@@ -59,8 +55,8 @@ function ProductView() {
                     quantity: itemQuantity[0].quantity + 1
                 })
             })
-                .then(response => response.json())
-                .then(basketContext.setBasket)
+            basketContext.setBasket({status: "success", data: basketContext.basket.data.map((b) => b.sku === product.data.sku ? {sku: b.sku, quantity: itemQuantity[0].quantity + 1} : b)})
+
         }
     }
 

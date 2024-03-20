@@ -48,20 +48,25 @@ function BasketListItem({item}) {
                         quantity: itemQuantity[0].quantity + 1
                     })
                 })
-                basketContext.setBasket({status: "success", data: basketContext.basket.data.map((b) => b.sku === item.sku ? {sku: b.sku, quantity: itemQuantity[0].quantity + 1} : b)})            }
+                basketContext.setBasket({status: "success", data: basketContext.basket.data.map((b) => b.sku === item.sku ? {sku: b.sku, quantity: itemQuantity[0].quantity + 1} : b)})
+            }
         } else if (event.target.name === "remove") {
-            // if (basketContext.basket.data.filter(b => b.sku === item.sku)[0].quantity === 1)
-            // {
-            //     fetch(`${environment.apiUrl}basket/${authContext.user.id}`, {
-            //         method: 'DELETE',
-            //         headers: {
-            //             'Authorization': `Bearer ${localStorage.getItem("authToken")}`,
-            //             'Accept': 'application/json',
-            //             'Content-Type': 'application/json',
-            //           }})
-            //     basketContext.setBasket(basketContext.basket.data.filter((basketItem) => basketItem.sku !== item.sku)) 
-            // }
-            if (basketContext.basket.data) {
+            if (basketContext.basket.data.filter(b => b.sku === item.sku)[0].quantity === 1)
+            {
+                fetch(`${environment.apiUrl}basket/${authContext.user.id}`, {
+                    method: 'DELETE',
+                    headers: {
+                        'Authorization': `Bearer ${localStorage.getItem("authToken")}`,
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json',
+                      },
+                      body: JSON.stringify({
+                        sku: item.sku,
+                        quantity: 1
+                    })})
+                basketContext.setBasket({status: "success", data: basketContext.basket.data.filter((basketItem) => basketItem.sku !== item.sku)}) 
+            }
+            else if (basketContext.basket.data) {
                 let itemQuantity = basketContext.basket.data.filter(b => b.sku === item.sku)
                 fetch(`${environment.apiUrl}basket/${authContext.user.id}`, {
                     method: 'PUT',

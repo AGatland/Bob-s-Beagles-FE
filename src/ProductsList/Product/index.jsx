@@ -28,10 +28,8 @@ function Product({product}) {
                     quantity: 1
                 })
             })
-            basketContext.setBasket([...basketContext.basket, {
-                sku: product.sku,
-                quantity: itemQuantity[0].quantity + 1
-            }])
+            basketContext.setBasket({status: "success", data: basketContext.basket.data.map((b) => b.sku === product.data.sku ? {sku: b.sku, quantity: 1} : b)})
+
         }
         else if (basketContext.basket.data) {
             /*
@@ -50,10 +48,8 @@ function Product({product}) {
                     quantity: itemQuantity[0].quantity + 1
                 })
             })
-            basketContext.setBasket([...basketContext.basket, {
-                sku: product.sku,
-                quantity: itemQuantity[0].quantity + 1
-            }])
+            basketContext.setBasket({status: "success", data: basketContext.basket.data.map((b) => b.sku === product.data.sku ? {sku: b.sku, quantity: itemQuantity[0] + 1} : b)})
+
         }
     }
 

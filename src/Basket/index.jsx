@@ -5,6 +5,11 @@ import './style.css'
 
 function Basket() {
     const basketContext = useContext(BasketContext)
+
+    const handleClick = (event) => {
+        fetch()
+    }
+
     return(
         <div className="basket">
             <h1>Basket</h1>
