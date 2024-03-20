@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./style.css";
+import { environment } from "../environments/environment";
 
 function Signup() {
   const [formData, setFormData] = useState({
@@ -35,7 +36,7 @@ function Signup() {
   function handleSubmit(event) {
     event.preventDefault();
     // Signs up by making post request
-    fetch(`http://localhost:4000/auth/signup`, {
+    fetch(`${environment.apiUrl}auth/signup`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(formData),

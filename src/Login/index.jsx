@@ -21,7 +21,7 @@ function Login() {
 
   // TODO: Might structure the data from backend differently and/or add more fields to the user login details
   function handleResponse(data) {
-    login(data.user, data.token)
+    login(data.user, data.token);
   }
 
   // redirect to homepage if already logged in
@@ -34,7 +34,7 @@ function Login() {
   function handleSubmit(event) {
     event.preventDefault();
     // Logs in by making post request
-    fetch(`${environment.devUrl}auth/signin`, {
+    fetch(`${environment.apiUrl}auth/signin`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(loginDetails),
