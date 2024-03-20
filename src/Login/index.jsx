@@ -1,6 +1,7 @@
 import { useState, useContext, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../App";
+import "./style.css";
 
 import { environment } from "../environments/environment";
 
@@ -30,7 +31,7 @@ function Login() {
       logout();
       navigate("/");
     }
-  }, [user, navigate]);
+  }, [user, navigate, logout]);
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -51,10 +52,10 @@ function Login() {
   return (
     <div className="login">
       <h2>Log In</h2>
-      {invalid && <span>Invalid username or password</span>}
-      <form onSubmit={handleSubmit} className="form">
-        <label>
-          Email
+      {invalid && <span>Invalid email or password</span>}
+      <form onSubmit={handleSubmit}>
+        <div className="login-form">
+          <label>Email</label>
           <input
             type="text"
             name="username"
@@ -62,9 +63,7 @@ function Login() {
             onChange={handleChange}
             value={loginDetails.username}
           />
-        </label>
-        <label>
-          Password
+          <label>Password</label>
           <input
             type="password"
             name="password"
@@ -72,10 +71,14 @@ function Login() {
             onChange={handleChange}
             value={loginDetails.password}
           />
-        </label>
-        <button type="submit">Log In</button>
+        </div>
+        <button type="submit" className="login-button">
+          Log In
+        </button>
       </form>
-      <Link to="/signup">I don&apos;t have a user</Link>
+      <Link to="/signup" className="signup-link">
+        I don&apos;t have a user
+      </Link>
     </div>
   );
 }
