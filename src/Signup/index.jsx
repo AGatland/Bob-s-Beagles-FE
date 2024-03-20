@@ -26,7 +26,7 @@ function Signup() {
   };
 
   function handleResponse(data) {
-    // Todo: Make popup with the message of successfully registered
+    // TODO: Make popup with the message of successfully registered
     console.log(data.message);
 
     // Navigate to login page
