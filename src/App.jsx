@@ -24,15 +24,7 @@ function App() {
   const [user, setUser] = useState({});
 
   useEffect(() => {
-    fetch(`${environment.apiUrl}products`, {
-      Method: 'GET',
-      headers: {
-        'Authorization': `Bearer ${localStorage.getItem("token")}`,
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
-        "Access-Control-Allow-Origin": "http://localhost:5173"
-      },
-    })
+    fetch(`${environment.devUrl}products`)
       .then((response) => response.json())
       .then(setProducts);
   }, []);
