@@ -36,11 +36,11 @@ function App() {
       .then(setProducts);
   }, []);
 
-  if (!products) return <h1>Loading products</h1>;
+  if (!products.data) return <h1>Loading products</h1>;
 
   return (
     <MantineProvider>
-      <ProductContext.Provider value={{ products: products }}>
+      <ProductContext.Provider value={{ products: products.data }}>
         <BasketContext.Provider
           value={{ basket: basket, setBasket: setBasket }}
         >
