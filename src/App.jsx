@@ -13,6 +13,7 @@ import Basket from "./Basket";
 import Login from "./Login";
 import Signup from "./Signup";
 import ProductView from './ProductView';
+import UserView from "./UserView";
 
 const ProductContext = createContext();
 const BasketContext = createContext();
@@ -81,7 +82,7 @@ function App() {
 
   return (
     <MantineProvider>
-      <AuthContext.Provider value={{ user, authToken, login, logout }}>
+      <AuthContext.Provider value={{ user, setUser, authToken, login, logout }}>
         <ProductContext.Provider value={{ products: products.data }}>
           <BasketContext.Provider
             value={{ basket: basket, setBasket: setBasket }}
@@ -96,8 +97,8 @@ function App() {
                   <Route path="/basket" element={user ? <Basket /> : <Login />} />
                   <Route path="/login" element={<Login />} />
                   <Route path="/signup" element={<Signup />} />
-                  <Route path="/products/:id" element={<ProductView />}
-              />
+                  <Route path="/products/:id" element={<ProductView />}/>
+                  <Route path="/users/:id" element={<UserView />}/>
                 </Routes>
               </div>
               <Footer></Footer>
