@@ -3,7 +3,7 @@ import Header from "./Header";
 import "@mantine/core/styles.css";
 import { MantineProvider } from "@mantine/core";
 import Sidebar from "./Sidebar";
-import { Route, Routes, useNavigate } from "react-router-dom";
+import { Route, Routes, useNavigate, Navigate } from "react-router-dom";
 import Footer from "./Footer";
 import { createContext, useEffect, useState } from "react";
 import Dashboard from "./Dashboard";
@@ -59,17 +59,30 @@ function App() {
     };
 
   useEffect(() => {
-    fetch(`${environment.devUrl}products`)
-      .then((response) => response.json())
-      .then(setProducts);
-  }, []);
+    if(user)
+    {    const getProducts = async () => {
+          const response = await fetch(`${environment.apiUrl}products`, {
+            Method: 'GET',
+            headers: {
+              'Authorization': `Bearer ${localStorage.getItem("authToken")}`,
+              'Accept': 'application/json',
+              'Content-Type': 'application/json',
+            },
+          })
+          const products = await response.json()
+          setProducts(products)
+        }
+        getProducts()
+    }
+    if (!user) navigate("/login")
+  }, [user]);
 
-  if (!products) return <h1>Loading products</h1>;
+  if(!products.data && user) return <h1>Loading</h1>
 
   return (
     <MantineProvider>
       <AuthContext.Provider value={{ user, authToken, login, logout }}>
-        <ProductContext.Provider value={{ products: products }}>
+        <ProductContext.Provider value={{ products: products.data }}>
           <BasketContext.Provider
             value={{ basket: basket, setBasket: setBasket }}
           >

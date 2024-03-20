@@ -59,7 +59,7 @@ function Product({product}) {
     return(
         <div className="product-item">
             <Link to={`/products/${product.sku}`}>
-                <img src={product.image_url} />
+                <img src={product.img} />
                 <p>{product.name}</p>
                 <p>£{product.price}</p>
                 <button onClick={handleClick}>Add to cart</button>
