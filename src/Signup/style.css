@@ -1,0 +1,31 @@
+.signup {
+  display: flex;
+  flex-direction: column;
+
+  height: 100%;
+  width: 100%;
+}
+
+.signup h2 {
+  text-align: center;
+}
+
+.signup span {
+  color: red;
+  margin-left: 40%;
+}
+
+.signup-form {
+  display: grid;
+  grid-template-columns: 20% 40%;
+  justify-content: center;
+  gap: 5px;
+}
+
+.signup-form button {
+  margin-top: 20px;
+}
+
+.login-link {
+  margin-left: 20%;
+}
