@@ -3,7 +3,7 @@ import Header from "./Header";
 import "@mantine/core/styles.css";
 import { MantineProvider } from "@mantine/core";
 import Sidebar from "./Sidebar";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, Navigate } from "react-router-dom";
 import Footer from "./Footer";
 import { createContext, useEffect, useState } from "react";
 import Dashboard from "./Dashboard";
@@ -36,8 +36,6 @@ function App() {
       .then(setProducts);
   }, []);
 
-  if (!products.data) return <h1>Loading products</h1>;
-
   return (
     <MantineProvider>
       <ProductContext.Provider value={{ products: products.data }}>
@@ -49,6 +47,7 @@ function App() {
               <Header></Header>
               <div className="nav-main-container">
                 <Sidebar></Sidebar>
+                {localStorage.getItem("token") && products.data ? (
                 <Routes>
                   <Route path="/" element={<Dashboard />} />
                   <Route path="/products" element={<ProductsList />} />
@@ -57,7 +56,15 @@ function App() {
                   <Route path="/signup" element={<Signup />} />
                   <Route path="/products/:id" element={<ProductView />}
               />
-                </Routes>
+                </Routes>)
+                : (
+                  <>
+                    <Routes>
+                      <Route path="/login" element={<Login />} />
+                    </Routes>
+                    <Navigate to="/login" />
+                  </>
+                )} 
               </div>
               <Footer></Footer>
             </div>
