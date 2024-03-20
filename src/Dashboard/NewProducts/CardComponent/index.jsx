@@ -8,7 +8,7 @@ function CardComponent({product}) {
             shadow="md"
             p="xl"
             radius="md"
-            style={{backgroundImage: `url(${product.image_url})`}}
+            style={{backgroundImage: `url(${product.img})`}}
             className="card"
         >
             <div>

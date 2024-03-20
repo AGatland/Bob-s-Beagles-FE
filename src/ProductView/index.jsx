@@ -11,7 +11,14 @@ function ProductView() {
 
     let { id } = useParams()
     useEffect(() => {
-        fetch(`${environment.devUrl}products/${id}`)
+        fetch(`${environment.apiUrl}products/${id}`, {
+            Method: 'GET',
+            headers: {
+              'Authorization': `Bearer ${localStorage.getItem("authToken")}`,
+              'Accept': 'application/json',
+              'Content-Type': 'application/json',
+            },
+          })
             .then(response => response.json())
             .then(setProduct)
     }, [])
@@ -60,19 +67,19 @@ function ProductView() {
         }
     }
 
-    if(!product) return <Loader color="blue" />
+    if(!product.data) return <Loader color="blue" />
 
     return(
         <div className="product-view">
-            <img src={product.image_url} />
+            <img src={product.data.img} />
             <div className="product-view-details">
                 <div className="product-view-details-top-bottom">
                     <div>
-                        <h3>{product.name}</h3>
-                        <p>{product.description}</p>
+                        <h3>{product.data.name}</h3>
+                        <p>{product.data.description}</p>
                     </div>
                     <div>
-                        <h4>£{product.price}</h4>
+                        <h4>£{product.data.price}</h4>
                         <button onClick={handleClick}>Add to Basket</button>
                     </div>
                 </div>
