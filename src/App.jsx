@@ -91,9 +91,9 @@ function App() {
               <div className="nav-main-container">
                 <Sidebar></Sidebar>
                 <Routes>
-                  <Route path="/" element={<Dashboard />} />
-                  <Route path="/products" element={<ProductsList />} />
-                  <Route path="/basket" element={<Basket />} />
+                  <Route path="/" element={user ? <Dashboard /> : <Login />} />
+                  <Route path="/products" element={user ? <ProductsList /> : <Login />} />
+                  <Route path="/basket" element={user ? <Basket /> : <Login />} />
                   <Route path="/login" element={<Login />} />
                   <Route path="/signup" element={<Signup />} />
                   <Route path="/products/:id" element={<ProductView />}
