@@ -1,7 +1,12 @@
-import { useState } from "react";
+import { useState, useContext, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "../App";
+
+import { environment } from "../environments/environment";
 
 function Login() {
+  const { user, login } = useContext(AuthContext);
+
   const [loginDetails, setLoginDetails] = useState({
     username: "",
     password: "",
@@ -14,19 +19,22 @@ function Login() {
     setLoginDetails({ ...loginDetails, [name]: value });
   };
 
+  // TODO: Might structure the data from backend differently and/or add more fields to the user login details
   function handleResponse(data) {
-    // Save token and id of user to local storage
-    localStorage.setItem("token", data.token);
-    localStorage.setItem("id", data.id);
-
-    // Navigate to dashboad
-    navigate(`/`);
+    login(data.user, data.token)
   }
+
+  // redirect to homepage if already logged in
+  useEffect(() => {
+    if (user) {
+      navigate("/");
+    }
+  }, [user, navigate]);
 
   function handleSubmit(event) {
     event.preventDefault();
     // Logs in by making post request
-    fetch(`http://localhost:4000/auth/signin`, {
+    fetch(`${environment.devUrl}auth/signin`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(loginDetails),

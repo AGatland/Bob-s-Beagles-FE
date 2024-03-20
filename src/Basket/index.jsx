@@ -11,7 +11,7 @@ function Basket() {
         TODO: Add id for requesting from API once user login is here
     */
     useEffect(() => {
-        fetch(`${environment.apiUrl}basket`)
+        fetch(`${environment.devUrl}basket`)
         .then(response => response.json())
         .then(basketContext.setBasket)
     })
