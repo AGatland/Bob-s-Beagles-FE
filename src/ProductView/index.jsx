@@ -11,7 +11,7 @@ function ProductView() {
 
     let { id } = useParams()
     useEffect(() => {
-        fetch(`${environment.apiUrl}products/${id}`)
+        fetch(`${environment.devUrl}products/${id}`)
             .then(response => response.json())
             .then(setProduct)
     }, [])
@@ -19,7 +19,7 @@ function ProductView() {
     const handleClick = (event) => {
         if (basketContext.basket.filter(b => b.sku === product.sku).length === 0)
         {
-            fetch(`${environment.apiUrl}basket`, {
+            fetch(`${environment.devUrl}basket`, {
                 method: 'POST',
                 header: [{'Content-Type': 'application/json'}],
                 body: JSON.stringify({
@@ -41,7 +41,7 @@ function ProductView() {
                 TODO: EDIT ID so it's not a hardcoded placeholder but comes from the url!!
             */
             let itemQuantity = basketContext.basket.filter(b => b.sku === product.sku)
-            fetch(`${environment.apiUrl}basket/123${product.sku}`, {
+            fetch(`${environment.devUrl}basket/123${product.sku}`, {
                 method: 'PUT',
                 header: [{'Content-Type': 'application/json'}],
                 body: JSON.stringify({

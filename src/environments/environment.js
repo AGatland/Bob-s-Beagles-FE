@@ -1,4 +1,5 @@
 export const environment = {
-    apiUrl: 'http://localhost:3000/',
+    apiUrl: 'https://bob-s-beagles-be.fly.dev/',
+    devUrl: 'http://localhost:3000/'
   };
   

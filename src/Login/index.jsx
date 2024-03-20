@@ -26,7 +26,7 @@ function Login() {
   function handleSubmit(event) {
     event.preventDefault();
     // Logs in by making post request
-    fetch(`http://localhost:4000/auth/signin`, {
+    fetch(`https://bob-s-beagles-be.fly.dev/auth/signin`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(loginDetails),

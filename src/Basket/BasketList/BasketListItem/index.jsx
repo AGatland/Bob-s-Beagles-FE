@@ -19,7 +19,7 @@ function BasketListItem({item}) {
         if (event.target.name === "add") {
             if (basketContext.basket.filter(b => b.sku === item.sku).length === 0)
             {
-                fetch(`${environment.apiUrl}basket/123${product.sku}`, {
+                fetch(`${environment.devUrl}basket/123${product.sku}`, {
                     method: 'POST',
                     header: [{'Content-Type': 'application/json'}],
                     body: JSON.stringify({
@@ -41,7 +41,7 @@ function BasketListItem({item}) {
                     TODO: EDIT ID so it's not a hardcoded placeholder but comes from the url!!
                 */
                 let itemQuantity = basketContext.basket.filter(b => b.sku === item.sku)
-                fetch(`${environment.apiUrl}basket/123${item.sku}`, {
+                fetch(`${environment.devUrl}basket/123${item.sku}`, {
                     method: 'PUT',
                     header: [{'Content-Type': 'application/json'}],
                     body: JSON.stringify({
@@ -61,7 +61,7 @@ function BasketListItem({item}) {
         } else if (event.target.name === "remove") {
             if (basketContext.basket.filter(b => b.sku === item.sku)[0].quantity === 1)
             {
-                fetch(`${environment.apiUrl}basket/123${item.sku}`, {
+                fetch(`${environment.devUrl}basket/123${item.sku}`, {
                     method: 'DELETE',
                     header: [{'Content-Type': 'application/json'}]
                 })
@@ -72,7 +72,7 @@ function BasketListItem({item}) {
                     TODO: EDIT ID so it's not a hardcoded placeholder but comes from the url!!
                 */
                 let itemQuantity = basketContext.basket.filter(b => b.sku === item.sku)
-                fetch(`${environment.apiUrl}basket/123${item.sku}`, {
+                fetch(`${environment.devUrl}basket/123${item.sku}`, {
                     method: 'PUT',
                     header: [{'Content-Type': 'application/json'}],
                     body: JSON.stringify({
