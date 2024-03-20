@@ -10,6 +10,7 @@ import Dashboard from './Dashboard';
 import { environment } from './environments/environment';
 import ProductsList from './ProductsList';
 import Basket from './Basket';
+import ProductView from './ProductView';
 
 const ProductContext = createContext()
 const BasketContext = createContext()
@@ -49,6 +50,10 @@ function App() {
               <Route
                 path="/basket"
                 element={<Basket />}
+              />
+              <Route
+                path="/products/:id"
+                element={<ProductView />}
               />
             </Routes>
           </div>
