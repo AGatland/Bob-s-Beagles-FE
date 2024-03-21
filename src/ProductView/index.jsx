@@ -39,7 +39,8 @@ function ProductView() {
                     quantity: 1
                 })
             })
-            basketContext.setBasket({status: "success", data: basketContext.basket.data.map((b) => b.sku === product.data.sku ? {sku: b.sku, quantity: 1} : b)})
+            basketContext.setBasket({status: "success", data: [...basketContext.basket.data,  {sku: product.data.sku, quantity: 1}]})
+
         }
         else if (basketContext.basket.data) {
             let itemQuantity = basketContext.basket.data.filter(b => b.sku === product.data.sku)
