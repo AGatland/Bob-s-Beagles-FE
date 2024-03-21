@@ -1,22 +1,17 @@
 import { useContext, useState, useEffect } from "react"
-import { AuthContext, ProductContext } from "../App";
+import { ProductContext } from "../App";
 import { Loader } from "@mantine/core";
 import ProductsHeader from "./ProductsHeader";
 import './style.css'
 import Product from "./Product";
 import ReactPaginate from "react-paginate";
-import { useNavigate } from "react-router-dom";
 
 /*
   TODO: Change cursor when hovering over buttons to pointer
 */
 function ProductsList() {
     const productContext = useContext(ProductContext)
-    const authContext = useContext(AuthContext)
-    const navigate = useNavigate()
     const [category, setCategory] = useState("All items")
-    const [categories, setCategories] = useState([])
-    const [filteredCategories, setFilteredCategories] = useState([])
     const [pagination, setPagination] = useState({
         data: productContext.products,
         offset: 0,
