@@ -15,6 +15,7 @@ import Signup from "./Signup";
 import ProductView from "./ProductView";
 import OrderHistory from "./OrderHistory";
 import OrderView from "./OrderView";
+import UserView from "./UserView";
 
 const ProductContext = createContext();
 const BasketContext = createContext();
@@ -83,7 +84,7 @@ function App() {
 
   return (
     <MantineProvider>
-      <AuthContext.Provider value={{ user, authToken, login, logout }}>
+      <AuthContext.Provider value={{ user, setUser, authToken, login, logout }}>
         <ProductContext.Provider value={{ products: products.data }}>
           <BasketContext.Provider
             value={{ basket: basket, setBasket: setBasket }}
@@ -110,6 +111,7 @@ function App() {
                     path="/users/:id/orders/:orderId"
                     element={<OrderView />}
                   />
+                  <Route path="/users/:id" element={<UserView />}/>
                 </Routes>
               </div>
               <Footer></Footer>
