@@ -12,7 +12,10 @@ import ProductsList from "./ProductsList";
 import Basket from "./Basket";
 import Login from "./Login";
 import Signup from "./Signup";
-import ProductView from './ProductView';
+import ProductView from "./ProductView";
+import OrderHistory from "./OrderHistory";
+import OrderView from "./OrderView";
+import UserView from "./UserView";
 
 const ProductContext = createContext();
 const BasketContext = createContext();
@@ -35,32 +38,30 @@ function App() {
     localStorage.getItem("authToken") || ""
   );
 
-    // called when we successfully log in
-    const login = (user, authToken) => {
-      setUser(user);
-      setAuthToken(authToken);
-      // update local storage
-      localStorage.setItem("authUser", JSON.stringify(user));
-      localStorage.setItem("authToken", authToken);
-      // redirect to home page after login
-      navigate("/");
-    };
-  
-    // called to logout: clear local storage + reset local state
-    const logout = () => {
-      // reset local user auth state
-      setUser(null);
-      setAuthToken("");
-      // clear local storage
-      localStorage.removeItem("authUser");
-      localStorage.removeItem("authToken");
-      // redirect to login page
-      navigate("/login");
-    };
+  // called when we successfully log in
+  const login = (user, authToken) => {
+    setUser(user);
+    setAuthToken(authToken);
+    // update local storage
+    localStorage.setItem("authUser", JSON.stringify(user));
+    localStorage.setItem("authToken", authToken);
+    // redirect to home page after login
+    navigate("/");
+  };
+
+  // called to logout: clear local storage + reset local state
+  const logout = () => {
+    // reset local user auth state
+    setUser(null);
+    setAuthToken("");
+    // clear local storage
+    localStorage.removeItem("authUser");
+    localStorage.removeItem("authToken");
+    // redirect to login page
+    navigate("/login");
+  };
 
   useEffect(() => {
-
-
     if(user)
     {    const getProducts = async () => {
           const response = await fetch(`${environment.apiUrl}products`, {
@@ -90,11 +91,11 @@ function App() {
     if (!user) navigate("/login")
   }, [navigate, user]);
 
-  if(!products.data && user) return <h1>Loading</h1>
+  if (!products.data && user) return <h1>Loading</h1>;
 
   return (
     <MantineProvider>
-      <AuthContext.Provider value={{ user, authToken, login, logout }}>
+      <AuthContext.Provider value={{ user, setUser, authToken, login, logout }}>
         <ProductContext.Provider value={{ products: products.data }}>
           <BasketContext.Provider
             value={{ basket: basket, setBasket: setBasket }}
@@ -105,12 +106,23 @@ function App() {
                 <Sidebar></Sidebar>
                 <Routes>
                   <Route path="/" element={user ? <Dashboard /> : <Login />} />
-                  <Route path="/products" element={user ? <ProductsList /> : <Login />} />
-                  <Route path="/basket" element={user ? <Basket /> : <Login />} />
+                  <Route
+                    path="/products"
+                    element={user ? <ProductsList /> : <Login />}
+                  />
+                  <Route
+                    path="/basket"
+                    element={user ? <Basket /> : <Login />}
+                  />
                   <Route path="/login" element={<Login />} />
                   <Route path="/signup" element={<Signup />} />
-                  <Route path="/products/:id" element={<ProductView />}
-              />
+                  <Route path="/products/:id" element={<ProductView />} />
+                  <Route path="/users/:id/orders" element={<OrderHistory />} />
+                  <Route
+                    path="/users/:id/orders/:orderId"
+                    element={<OrderView />}
+                  />
+                  <Route path="/users/:id" element={<UserView />}/>
                 </Routes>
               </div>
               <Footer></Footer>
