@@ -39,7 +39,7 @@ function Basket() {
         <div className="basket">
             <h1>Basket</h1>
             <BasketList basket={basketContext.basket.data} setBasket={basketContext.setBasket}></BasketList>
-            <button onClick={handleClick}>Place order</button>
+            <button className="place-order" onClick={handleClick}>Place order</button>
         </div>
     )
 }

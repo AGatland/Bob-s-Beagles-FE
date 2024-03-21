@@ -9,3 +9,17 @@
 ul {
     list-style: none;
 }
+
+.place-order {
+    background-color: darkgreen;
+    border-radius: 10px;
+    border: none;
+    padding: 5px;
+    color: white;
+}
+
+.place-order:hover {
+    background-color: rgb(164, 255, 164);
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+}
