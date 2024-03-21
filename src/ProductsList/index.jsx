@@ -19,6 +19,7 @@ function ProductsList() {
         currentData: []
     });
 
+    // Sets pagination currentData when new page is rendering
     useEffect(() => {
       setPagination((prevState) => ({
         ...prevState,
@@ -26,13 +27,15 @@ function ProductsList() {
         currentData: prevState.data.slice(pagination.offset, pagination.offset + pagination.numberPerPage)
       }))
     }, [pagination.numberPerPage, pagination.offset])
-      
+    
+    // Handles the pagination button clicks
     const handlePageClick = event => {
       const selected = event.selected;
       const offset = selected * pagination.numberPerPage
       setPagination({ ...pagination, offset })
     }
 
+    // Set pagination data based on the items in the new filtered list of items
     const filterPage = (category) => {
       setCategory(category);
       const data = category === "All items" ? productContext.products : productContext.products.filter((product) => product.category === category);

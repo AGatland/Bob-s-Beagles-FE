@@ -14,6 +14,7 @@ function ProductsHeader({products, filterPage}) {
         setFilteredCategories(Array.from(temp))
     },[products])
 
+    // Applies filter on product list
     const handleClick = (event) => {
         filterPage(event.target.name)
     }
