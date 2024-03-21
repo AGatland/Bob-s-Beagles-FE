@@ -28,7 +28,8 @@ export default function UserView() {
                     },
                   })
                 .then(res => res.json())
-                .then(data => setUserToView(data.data))
+                .then(data => data.status === "success" ? setUserToView(data.data) : null)
+                .catch(error => console.error("Could not find user: ", error))
             }
         }
     }, [user, id]);
