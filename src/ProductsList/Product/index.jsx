@@ -1,6 +1,6 @@
 import { useContext } from 'react'
 import './style.css'
-import { BasketContext } from '../../App'
+import { AuthContext, BasketContext } from '../../App'
 import { environment } from '../../environments/environment'
 import { Link } from 'react-router-dom'
 
@@ -11,48 +11,42 @@ import { Link } from 'react-router-dom'
 */
 function Product({product}) {
     const basketContext = useContext(BasketContext)
+    const authContext = useContext(AuthContext)
 
     const handleClick = (event) => {
-        if (basketContext.basket.filter(b => b.sku === product.sku).length === 0)
+        if (basketContext.basket.data && basketContext.basket.data.filter(b => b.sku === product.sku).length === 0)
         {
-            fetch(`${environment.devUrl}basket`, {
+            fetch(`${environment.apiUrl}basket/${authContext.user.id}`, {
                 method: 'POST',
-                header: [{'Content-Type': 'application/json'}],
+                headers: {
+                    'Authorization': `Bearer ${localStorage.getItem("authToken")}`,
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                  },
                 body: JSON.stringify({
-                    id: "123" + product.sku, /* To stop json-server from creating id */
-                    userId: "123",
                     sku: product.sku,
                     quantity: 1
                 })
             })
-            basketContext.setBasket([...basketContext.basket, {
-                id: "123" + product.sku, /* To stop json-server from creating id */
-                userId: "123",
-                sku: product.sku,
-                quantity: 1
-            }]) 
+            basketContext.setBasket({status: "success", data: [...basketContext.basket.data,  {sku: product.sku, quantity: 1}]})
+
         }
-        else {
-            /*
-                TODO: EDIT ID so it's not a hardcoded placeholder but comes from the url!!
-            */
-            let itemQuantity = basketContext.basket.filter(b => b.sku === product.sku)
-            fetch(`${environment.devUrl}basket/123${product.sku}`, {
+        else if (basketContext.basket.data) {
+            let itemQuantity = basketContext.basket.data.filter(b => b.sku === product.sku)
+            fetch(`${environment.apiUrl}basket/${authContext.user.id}`, {
                 method: 'PUT',
-                header: [{'Content-Type': 'application/json'}],
+                headers: {
+                    'Authorization': `Bearer ${localStorage.getItem("authToken")}`,
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                  },
                 body: JSON.stringify({
-                    id: "123" + product.sku, /* To stop json-server from creating id */
-                    userId: "123",
                     sku: product.sku,
                     quantity: itemQuantity[0].quantity + 1
                 })
             })
-            basketContext.setBasket([...basketContext.basket, {
-                id: "123" + product.sku, /* To stop json-server from creating id */
-                userId: "123",
-                sku: product.sku,
-                quantity: 1
-            }])
+            basketContext.setBasket({status: "success", data: basketContext.basket.data.map((b) => b.sku === product.sku ? {sku: product.sku, quantity: itemQuantity[0].quantity + 1} : b)})
+
         }
     }
 
@@ -62,8 +56,8 @@ function Product({product}) {
                 <img src={product.img} />
                 <p>{product.name}</p>
                 <p>£{product.price}</p>
-                <button onClick={handleClick}>Add to cart</button>
             </Link>
+                <button onClick={handleClick}>Add to cart</button>
         </div>
     )
 }

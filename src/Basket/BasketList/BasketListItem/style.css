@@ -1,16 +1,14 @@
-.basket {
-    width: 100%;
-
+.price-container {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
+    justify-content: space-between;
+    width: 25%;
 }
 
-ul {
-    list-style: none;
-}
-
-.place-order {
+.price-container button {
+    width: 30px;
+    height: 30px;
     background-color: darkgreen;
     border-radius: 10px;
     border: none;
@@ -18,7 +16,7 @@ ul {
     color: white;
 }
 
-.place-order:hover {
+.price-container button:hover {
     background-color: rgb(164, 255, 164);
     color: rgb(0, 0, 0);
     cursor: pointer;

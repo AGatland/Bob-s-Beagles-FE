@@ -62,23 +62,34 @@ function App() {
   };
 
   useEffect(() => {
-    if (user) {
-      const getProducts = async () => {
-        const response = await fetch(`${environment.apiUrl}products`, {
-          Method: "GET",
+    if(user)
+    {    const getProducts = async () => {
+          const response = await fetch(`${environment.apiUrl}products`, {
+            Method: 'GET',
+            headers: {
+              'Authorization': `Bearer ${localStorage.getItem("authToken")}`,
+              'Accept': 'application/json',
+              'Content-Type': 'application/json',
+            },
+          })
+          const products = await response.json()
+          setProducts(products)
+        }
+        getProducts()
+        
+        fetch(`${environment.apiUrl}basket/${user.id}`, {
+          Method: 'GET',
           headers: {
-            Authorization: `Bearer ${localStorage.getItem("authToken")}`,
-            Accept: "application/json",
-            "Content-Type": "application/json",
+            'Authorization': `Bearer ${localStorage.getItem("authToken")}`,
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
           },
-        });
-        const products = await response.json();
-        setProducts(products);
-      };
-      getProducts();
+        })
+          .then(response => response.json())
+          .then(setBasket)
     }
-    if (!user) navigate("/login");
-  }, [user]);
+    if (!user) navigate("/login")
+  }, [navigate, user]);
 
   if (!products.data && user) return <h1>Loading</h1>;
 
