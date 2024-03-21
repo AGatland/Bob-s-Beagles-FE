@@ -25,14 +25,18 @@ function OrderHistory() {
     <div className="order-history">
       <h2>Order History</h2>
       <table>
-        <tr>
-          <th>Date Ordered</th>
-          <th>Status</th>
-          <th>Link to Order View</th>
-        </tr>
-        {orderHistory.map((order, index) => (
-          <OrderHistoryItem key={index} order={order} />
-        ))}
+        <thead>
+          <tr>
+            <th>Date Ordered</th>
+            <th>Status</th>
+            <th>Link to Order View</th>
+          </tr>
+        </thead>
+        <tbody>
+          {orderHistory.map((order, index) => (
+            <OrderHistoryItem key={index} order={order} />
+          ))}
+        </tbody>
       </table>
     </div>
   );
