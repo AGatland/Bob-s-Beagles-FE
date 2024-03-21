@@ -2,7 +2,7 @@ import { useContext, useState, useEffect } from "react"
 import { AuthContext, BasketContext, ProductContext } from "../../../App"
 import { Loader } from "@mantine/core"
 import { environment } from "../../../environments/environment"
-
+import './style.css'
 
 /*
     TODO: 
@@ -93,8 +93,8 @@ function BasketListItem({item}) {
     return(
         <li className="basket-list-item">
             <p>{itemInfo[0].name}</p>
-            <p>
-                <button name="remove" onClick={handleClick}>-</button> {item.quantity} <button name="add" onClick={handleClick}>+</button> £{itemInfo[0].price}
+            <p className="price-container">
+                <button name="remove" onClick={handleClick}>-</button> {item.quantity} <button name="add" onClick={handleClick}>+</button> <p>£{itemInfo[0].price}</p> | <p>£{itemInfo[0].price * item.quantity}</p>
             </p>
         </li>
     )
