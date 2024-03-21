@@ -8,11 +8,11 @@ import { AuthContext } from "../App";
 function OrderHistory() {
   const [orderHistory, setOrderHistory] = useState([]);
   let { id } = useParams();
-  const { user } = useContext(AuthContext);
+  const { user, roles } = useContext(AuthContext);
 
   useEffect(() => {
     if (id) {
-      if (user && Number(user.id) === Number(id)) {
+      if (user && (Number(user.id) === Number(id) || roles.some(role => role.name === "ROLE_ADMIN"))) {
         fetch(`${environment.apiUrl}users/${id}/orders`, {
           Method: "GET",
           headers: {
@@ -30,7 +30,7 @@ function OrderHistory() {
   return (
     <div className="order-history">
       <h2>Order History</h2>
-      {user && Number(user.id) === Number(id) ? (
+      {(user && Number(user.id) === Number(id)) || roles.some(role => role.name === "ROLE_ADMIN") ? (
         <table>
           <thead>
             <tr>
