@@ -38,10 +38,12 @@ function Sidebar() {
           {user ? "LogOut" : "LogIn"}
         </button>
       </Link>
-      <button>
-        <IconSettings></IconSettings>
-        Settings
-      </button>
+      <Link to={`/users/${user.id}`}>
+        <button>
+          <IconSettings></IconSettings>
+          Settings
+        </button>
+      </Link>
     </nav>
   );
 }
