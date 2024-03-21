@@ -22,7 +22,7 @@ function Login() {
 
   // TODO: Might structure the data from backend differently and/or add more fields to the user login details
   function handleResponse(data) {
-    login(data.user, data.token);
+    login(data.user, data.token, data.roles);
   }
 
   // log out and redirect to homepage if already logged in
