@@ -4,11 +4,6 @@ import { AuthContext, BasketContext } from '../../App'
 import { environment } from '../../environments/environment'
 import { Link } from 'react-router-dom'
 
-/*
-    TODO: When clicking add to basket, show confirmation. Possibly change button from add to basket to [-]<amount>[+] ?
-        When adding existing item, update quantity
-        Replace placeholder values with userid
-*/
 function Product({product}) {
     const basketContext = useContext(BasketContext)
     const authContext = useContext(AuthContext)

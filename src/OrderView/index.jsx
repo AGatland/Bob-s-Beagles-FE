@@ -43,7 +43,7 @@ function OrderView() {
         <IconArrowLeft></IconArrowLeft> Back to order history
       </Link>
       <h2>Order View</h2>
-      {/* Only display data if userId of fetched order is same as current users id */}
+      {/* Only display data if userId of fetched order is same as current users id, or the user is admin role */}
       {(order.userId === user.id || roles.some(role => role.name === "ROLE_ADMIN")) && (
         <div>
           <div className="order-view-details">

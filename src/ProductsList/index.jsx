@@ -6,9 +6,6 @@ import './style.css'
 import Product from "./Product";
 import ReactPaginate from "react-paginate";
 
-/*
-  TODO: Change cursor when hovering over buttons to pointer
-*/
 function ProductsList() {
     const productContext = useContext(ProductContext)
     const [category, setCategory] = useState("All items")

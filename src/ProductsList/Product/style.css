@@ -28,6 +28,7 @@
 }
 
 .product-item button:hover {
+    cursor: pointer;
     background-color: rgb(164, 236, 200);
     color: black;
     transition: 200ms;
