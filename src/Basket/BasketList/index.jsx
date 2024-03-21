@@ -3,9 +3,6 @@ import './style.css'
 import { useContext, useState, useEffect } from "react"
 import { ProductContext } from "../../App"
 
-/*
-    TODO: Make "Place Order" button functional
-*/
 function BasketList({basket, setBasket}) {
     const productContext = useContext(ProductContext)
     const [total, setTotal] = useState(0.0)

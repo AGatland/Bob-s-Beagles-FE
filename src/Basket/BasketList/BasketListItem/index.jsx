@@ -5,8 +5,7 @@ import { environment } from "../../../environments/environment"
 
 
 /*
-    TODO: Make + and - buttons functional
-        If multiple of same item in basket, show once with correct quantity number
+    TODO: 
         Price on the right should show singular, AND sum based on quantity
         Add and remove copy pasted from Product. Have it elsewhere and pass throug context or props?
 */
