@@ -99,7 +99,7 @@ function App() {
           .then(response => response.json())
           .then(setBasket)
     }
-    if (!user) navigate("/login")
+    if (!user && window.location.pathname !== "/signup") navigate("/login")
   }, [navigate, user]);
 
   if (!products.data && user) return <h1>Loading</h1>;
