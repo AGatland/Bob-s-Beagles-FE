@@ -28,13 +28,10 @@ function Product({product}) {
                     quantity: 1
                 })
             })
-            basketContext.setBasket({status: "success", data: basketContext.basket.data.map((b) => b.sku === product.data.sku ? {sku: b.sku, quantity: 1} : b)})
+            basketContext.setBasket({status: "success", data: basketContext.basket.data.map((b) => b.sku === product.sku ? {sku: b.sku, quantity: 1} : b)})
 
         }
         else if (basketContext.basket.data) {
-            /*
-                TODO: EDIT ID so it's not a hardcoded placeholder but comes from the url!!
-            */
             let itemQuantity = basketContext.basket.data.filter(b => b.sku === product.sku)
             fetch(`${environment.apiUrl}basket/${authContext.user.id}`, {
                 method: 'PUT',
@@ -48,7 +45,7 @@ function Product({product}) {
                     quantity: itemQuantity[0].quantity + 1
                 })
             })
-            basketContext.setBasket({status: "success", data: basketContext.basket.data.map((b) => b.sku === product.data.sku ? {sku: b.sku, quantity: itemQuantity[0] + 1} : b)})
+            basketContext.setBasket({status: "success", data: basketContext.basket.data.map((b) => b.sku === product.sku ? {sku: b.sku, quantity: itemQuantity[0] + 1} : b)})
 
         }
     }
