@@ -32,7 +32,6 @@ function Admin() {
         })
             .then(response => response.json())
             .then(setOrderResponse)
-            console.log(orderResponse)
     }
 
     useEffect(() => {
