@@ -39,3 +39,15 @@
     transform: scale(0.9);
     transition: 10ms;
 }
+
+@media only screen and (max-width: 600px) {
+    .product-item {
+        width: 125px;
+        margin: 5px;
+        padding: 5px;
+    }
+    .product-item img {
+        height: 100px;
+        width: 100px;
+    }
+}

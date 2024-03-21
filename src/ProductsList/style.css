@@ -47,3 +47,9 @@
     cursor: pointer;
     background-color: darkgreen;
 }
+
+@media only screen and (max-width: 600px) {
+    .products-grid {
+        grid-template-columns: repeat(auto-fill, 135px);
+    }
+}

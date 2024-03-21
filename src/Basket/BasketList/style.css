@@ -13,3 +13,13 @@
     border-bottom: 1px solid green;
     padding: 5px;
 }
+
+@media only screen and (max-width: 600px) {
+    .basket-list {
+        width: 90%;
+    }
+
+    .basket-list li {
+        flex-direction: column;
+    }
+}
