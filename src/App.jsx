@@ -114,6 +114,7 @@ function App() {
               <Header></Header>
               <div className="nav-main-container">
                 <Sidebar></Sidebar>
+                <div className="main-container">
                 <Routes>
                   <Route path="/" element={user ? <Dashboard /> : <Login />} />
                   <Route
@@ -134,6 +135,7 @@ function App() {
                   />
                   <Route path="/users/:id" element={<UserView />}/>
                 </Routes>
+                </div>
               </div>
               <Footer></Footer>
             </div>

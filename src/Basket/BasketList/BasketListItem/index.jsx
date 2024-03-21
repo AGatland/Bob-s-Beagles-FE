@@ -93,9 +93,10 @@ function BasketListItem({item}) {
     return(
         <li className="basket-list-item">
             <p>{itemInfo[0].name}</p>
-            <p className="price-container">
-                <button name="remove" onClick={handleClick}>-</button> {item.quantity} <button name="add" onClick={handleClick}>+</button> <p>£{itemInfo[0].price}</p> | <p>£{itemInfo[0].price * item.quantity}</p>
-            </p>
+            <div className="price-container">
+                <button name="remove" onClick={handleClick}>-</button> {item.quantity} <button name="add" onClick={handleClick}>+</button> 
+                <p>£{itemInfo[0].price}</p> | <p>£{itemInfo[0].price * item.quantity}</p>
+            </div>
         </li>
     )
 }

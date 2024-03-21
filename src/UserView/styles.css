@@ -33,3 +33,19 @@
 .profile-view-info-header > h1:hover > a {
     color: rgb(10, 219, 90);
 }
+
+@media only screen and (max-width: 600px) {
+    .profile-view-info-header > div > h1 {
+        margin-left: 0px;
+        font-size: 15px;
+        max-width: min-content;
+    }
+    .profile-view-info-header > div {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .profile-view-info-header > h1 {
+        font-size: 15px;
+    }
+}

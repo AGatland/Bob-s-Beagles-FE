@@ -30,3 +30,14 @@
     align-items: center;
     margin-right: 5px;
 }
+
+@media only screen and (max-width: 600px) {
+    .shipping-info {
+        display: flex;
+        flex-direction: column;
+        margin-left: 0;
+    }
+    .shipping-info-part {
+        max-width: 300px;
+    }
+}
