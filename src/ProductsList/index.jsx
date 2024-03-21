@@ -16,9 +16,10 @@ function ProductsList() {
         data: productContext.products,
         offset: 0,
         numberPerPage: 12,
-        currentCata: []
+        currentData: []
     });
 
+    // Sets pagination currentData when new page is rendering
     useEffect(() => {
       setPagination((prevState) => ({
         ...prevState,
@@ -26,25 +27,38 @@ function ProductsList() {
         currentData: prevState.data.slice(pagination.offset, pagination.offset + pagination.numberPerPage)
       }))
     }, [pagination.numberPerPage, pagination.offset])
-      
+    
+    // Handles the pagination button clicks
     const handlePageClick = event => {
       const selected = event.selected;
       const offset = selected * pagination.numberPerPage
       setPagination({ ...pagination, offset })
     }
 
+    // Set pagination data based on the items in the new filtered list of items
+    const filterPage = (category) => {
+      setCategory(category);
+      const data = category === "All items" ? productContext.products : productContext.products.filter((product) => product.category === category);
+      const pageCount = data.length / pagination.numberPerPage;
+      const offset = pagination.offset > pageCount ? pageCount : pagination.offset
+      setPagination((prevState) => ({
+        ...prevState,
+        data: data,
+        pageCount: pageCount,
+        offset: offset,
+        currentData: data.slice(offset, offset + pagination.numberPerPage)
+      }))
+    }
+
     if (!productContext.products) return <Loader color="blue" />;
 
     return(
         <div className="products-list-container">
-            <ProductsHeader products={productContext.products} setCategory={setCategory} category={category}/>
+            <ProductsHeader products={productContext.products} filterPage={filterPage} setCategory={setCategory} category={category}/>
             <h2>{category}</h2>
             <div className="products-grid">
             {pagination.currentData && pagination.currentData.map(((product, index) => 
-                category === "All items" || category === product.category ?
-            (
                 <Product className="product-item" key={index} product={product} />
-            ) : (<></>)
             ))
             }
             </div>
