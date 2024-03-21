@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { environment } from "../../environments/environment";
+import { Link } from "react-router-dom";
 
 function OrderViewProduct({ productInOrder }) {
   const [product, setProduct] = useState({});
@@ -19,21 +20,16 @@ function OrderViewProduct({ productInOrder }) {
   }, []);
 
   return (
-    <li className="order-product">
-      <img src={product.img} />
-      <div className="product-view-details">
-        <div className="product-view-details-top-bottom">
-          <div>
-            <h3>{product.name}</h3>
-            <p>{product.description}</p>
-          </div>
-          <div>
-            <h4>£{product.price}</h4>
-            <h4>Quantity: {productInOrder.quantity}</h4>
-          </div>
-        </div>
-      </div>
-    </li>
+    <tr className="order-product">
+      <td>
+        <Link to={`/products/${product.sku}`}>{product.name}</Link>
+      </td>
+      <td>{productInOrder.quantity}</td>
+      <td>£{product.price * productInOrder.quantity}</td>
+      <td>
+        <img src={product.img} />
+      </td>
+    </tr>
   );
 }
 

@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import "./style.css";
 import OrderViewProduct from "./OrderViewProduct";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { environment } from "../environments/environment";
+import { IconArrowLeft } from "@tabler/icons-react";
 
 function OrderView() {
   const [order, setOrder] = useState({
@@ -29,19 +30,32 @@ function OrderView() {
 
   return (
     <div className="order-view">
+      <Link to={`/users/${id}/orders`}>
+        <IconArrowLeft></IconArrowLeft> Back to order history
+      </Link>
       <h2>Order View</h2>
-      {console.log(order)}
+      <div className="order-view-details">
+        <h4>Ordered: </h4>
+        <p>{order.dateOrdered}</p>
+        <h4>Status: </h4>
+        <p>{order.status}</p>
+      </div>
       {order && (
-        <p>
-          Ordered: {order.dateOrdered}, Status:{order.status}
-        </p>
-      )}
-      {order && (
-        <ul>
-          {order.products.map((product, index) => (
-            <OrderViewProduct key={index} productInOrder={product} />
-          ))}
-        </ul>
+        <table>
+          <thead>
+            <tr>
+              <th>Product</th>
+              <th>Quantity</th>
+              <th>Total Price</th>
+              <th>Image</th>
+            </tr>
+          </thead>
+          <tbody>
+            {order.products.map((product, index) => (
+              <OrderViewProduct key={index} productInOrder={product} />
+            ))}
+          </tbody>
+        </table>
       )}
     </div>
   );
