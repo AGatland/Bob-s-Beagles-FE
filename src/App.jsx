@@ -16,6 +16,7 @@ import ProductView from "./ProductView";
 import OrderHistory from "./OrderHistory";
 import OrderView from "./OrderView";
 import UserView from "./UserView";
+import Admin from "./Admin";
 
 const ProductContext = createContext();
 const BasketContext = createContext();
@@ -133,6 +134,7 @@ function App() {
                     element={<OrderView />}
                   />
                   <Route path="/users/:id" element={<UserView />}/>
+                  <Route path="/admin" element={<Admin />} />
                 </Routes>
               </div>
               <Footer></Footer>
