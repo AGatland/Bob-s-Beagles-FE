@@ -3,7 +3,7 @@ import Header from "./Header";
 import "@mantine/core/styles.css";
 import { MantineProvider } from "@mantine/core";
 import Sidebar from "./Sidebar";
-import { Route, Routes, useNavigate, Navigate } from "react-router-dom";
+import { Route, Routes, useNavigate } from "react-router-dom";
 import Footer from "./Footer";
 import { createContext, useEffect, useState } from "react";
 import Dashboard from "./Dashboard";

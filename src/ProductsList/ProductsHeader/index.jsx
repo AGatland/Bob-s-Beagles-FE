@@ -1,9 +1,6 @@
 import { useState, useEffect } from 'react'
 import './style.css'
 
-/*
-    TODO: Style category buttons. They are not pretty
-*/
 function ProductsHeader({products, filterPage}) {
     const [categories, setCategories] = useState(products.map(product => product.category))
     const [filteredCategories, setFilteredCategories] = useState([])
