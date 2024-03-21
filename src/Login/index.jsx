@@ -57,7 +57,7 @@ function Login() {
         <div className="login-form">
           <label>Email</label>
           <input
-            type="text"
+            type="email"
             name="username"
             required
             onChange={handleChange}
