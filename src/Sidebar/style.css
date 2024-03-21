@@ -4,6 +4,7 @@ nav {
   display: flex;
   flex-direction: column;
   width: 5%;
+  min-width: 70px;
   text-decoration: none;
 }
 
