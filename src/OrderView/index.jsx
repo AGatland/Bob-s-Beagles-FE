@@ -1,11 +1,16 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import "./style.css";
 import OrderViewProduct from "./OrderViewProduct";
 import { Link, useParams } from "react-router-dom";
 import { environment } from "../environments/environment";
 import { IconArrowLeft } from "@tabler/icons-react";
+import { AuthContext } from "../App";
 
 function OrderView() {
+  const { user } = useContext(AuthContext);
+
+  let { id, orderId } = useParams();
+
   const [order, setOrder] = useState({
     id: "",
     status: "",
@@ -13,20 +18,24 @@ function OrderView() {
     userId: "",
     products: [],
   });
-  let { id, orderId } = useParams();
 
   useEffect(() => {
-    fetch(`${environment.apiUrl}users/${id}/orders/${orderId}`, {
-      Method: "GET",
-      headers: {
-        Authorization: `Bearer ${localStorage.getItem("authToken")}`,
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-    })
-      .then((response) => response.json())
-      .then((data) => setOrder(data.data));
-  }, []);
+    if (id) {
+      // Data fetched only when current users id is the same as userid in path
+      if (user && Number(user.id) === Number(id)) {
+        fetch(`${environment.apiUrl}users/${id}/orders/${orderId}`, {
+          Method: "GET",
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("authToken")}`,
+            Accept: "application/json",
+            "Content-Type": "application/json",
+          },
+        })
+          .then((response) => response.json())
+          .then((data) => setOrder(data.data));
+      }
+    }
+  }, [id, user, orderId]);
 
   return (
     <div className="order-view">
@@ -34,28 +43,31 @@ function OrderView() {
         <IconArrowLeft></IconArrowLeft> Back to order history
       </Link>
       <h2>Order View</h2>
-      <div className="order-view-details">
-        <h4>Ordered: </h4>
-        <p>{order.dateOrdered}</p>
-        <h4>Status: </h4>
-        <p>{order.status}</p>
-      </div>
-      {order && (
-        <table>
-          <thead>
-            <tr>
-              <th>Product</th>
-              <th>Quantity</th>
-              <th>Total Price</th>
-              <th>Image</th>
-            </tr>
-          </thead>
-          <tbody>
-            {order.products.map((product, index) => (
-              <OrderViewProduct key={index} productInOrder={product} />
-            ))}
-          </tbody>
-        </table>
+      {/* Only display data if userId of fetched order is same as current users id */}
+      {order.userId === user.id && (
+        <div>
+          <div className="order-view-details">
+            <h4>Ordered: </h4>
+            <p>{order.dateOrdered}</p>
+            <h4>Status: </h4>
+            <p>{order.status}</p>
+          </div>
+          <table>
+            <thead>
+              <tr>
+                <th>Product</th>
+                <th>Quantity</th>
+                <th>Total Price</th>
+                <th>Image</th>
+              </tr>
+            </thead>
+            <tbody>
+              {order.products.map((product, index) => (
+                <OrderViewProduct key={index} productInOrder={product} />
+              ))}
+            </tbody>
+          </table>
+        </div>
       )}
     </div>
   );
