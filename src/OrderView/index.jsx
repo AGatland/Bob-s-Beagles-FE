@@ -7,7 +7,7 @@ import { IconArrowLeft } from "@tabler/icons-react";
 import { AuthContext } from "../App";
 
 function OrderView() {
-  const { user } = useContext(AuthContext);
+  const { user, roles } = useContext(AuthContext);
 
   let { id, orderId } = useParams();
 
@@ -22,7 +22,7 @@ function OrderView() {
   useEffect(() => {
     if (id) {
       // Data fetched only when current users id is the same as userid in path
-      if (user && Number(user.id) === Number(id)) {
+      if (user && Number(user.id) === Number(id) || roles.some(role => role.name === "ROLE_ADMIN")) {
         fetch(`${environment.apiUrl}users/${id}/orders/${orderId}`, {
           Method: "GET",
           headers: {
@@ -44,7 +44,7 @@ function OrderView() {
       </Link>
       <h2>Order View</h2>
       {/* Only display data if userId of fetched order is same as current users id */}
-      {order.userId === user.id && (
+      {(order.userId === user.id || roles.some(role => role.name === "ROLE_ADMIN")) && (
         <div>
           <div className="order-view-details">
             <h4>Ordered: </h4>
