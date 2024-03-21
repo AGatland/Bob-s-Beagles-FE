@@ -11,7 +11,7 @@ function NewProducts({products}) {
                 slideSize="1%"
                 slideGap={{ base: 0, sm: 2 }}
                 align="start"
-                slidesToScroll={2}
+                slidesToScroll={1}
                 >
                 {products.map((product, index) => 
                     <Carousel.Slide key={index}>
