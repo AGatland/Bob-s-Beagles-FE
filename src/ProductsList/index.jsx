@@ -48,7 +48,6 @@ function ProductsList() {
             ))
             }
             </div>
-            {/* TODO: Find out how to click page numbers by clicking on entire div instead of just the text */}
             <ReactPaginate
                 previousLabel={'Previous'}
                 nextLabel={'Next'}
