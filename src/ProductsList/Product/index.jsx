@@ -45,7 +45,7 @@ function Product({product}) {
                     quantity: itemQuantity[0].quantity + 1
                 })
             })
-            basketContext.setBasket({status: "success", data: basketContext.basket.data.map((b) => b.sku === product.sku ? {sku: b.sku, quantity: itemQuantity[0] + 1} : b)})
+            basketContext.setBasket({status: "success", data: basketContext.basket.data.map((b) => b.sku === product.sku ? {sku: product.sku, quantity: itemQuantity[0].quantity + 1} : b)})
 
         }
     }
