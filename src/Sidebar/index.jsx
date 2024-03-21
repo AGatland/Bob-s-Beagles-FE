@@ -38,7 +38,7 @@ function Sidebar() {
           {user ? "LogOut" : "LogIn"}
         </button>
       </Link>
-      <Link to={`/users/${user.id}`}>
+      <Link to={user && `/users/${user.id}`}>
         <button>
           <IconSettings></IconSettings>
           Settings
