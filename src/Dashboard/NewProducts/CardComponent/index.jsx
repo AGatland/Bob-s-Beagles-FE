@@ -19,7 +19,7 @@ function CardComponent({product}) {
                     {product.name}
                 </Title>
             </div>
-            <Button variant="white" color="dark">
+            <Button className="card-button" variant="white" color="dark">
                 <Link to={`/products/${product.sku}`}>Details</Link>
             </Button>
         </Paper>
