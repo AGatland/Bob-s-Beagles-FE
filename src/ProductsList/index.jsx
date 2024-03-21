@@ -16,7 +16,7 @@ function ProductsList() {
         data: productContext.products,
         offset: 0,
         numberPerPage: 12,
-        currentCata: []
+        currentData: []
     });
 
     useEffect(() => {
@@ -33,18 +33,29 @@ function ProductsList() {
       setPagination({ ...pagination, offset })
     }
 
+    const filterPage = (category) => {
+      setCategory(category);
+      const data = category === "All items" ? productContext.products : productContext.products.filter((product) => product.category === category);
+      const pageCount = data.length / pagination.numberPerPage;
+      const offset = pagination.offset > pageCount ? pageCount : pagination.offset
+      setPagination((prevState) => ({
+        ...prevState,
+        data: data,
+        pageCount: pageCount,
+        offset: offset,
+        currentData: data.slice(offset, offset + pagination.numberPerPage)
+      }))
+    }
+
     if (!productContext.products) return <Loader color="blue" />;
 
     return(
         <div className="products-list-container">
-            <ProductsHeader products={productContext.products} setCategory={setCategory} category={category}/>
+            <ProductsHeader products={productContext.products} filterPage={filterPage} setCategory={setCategory} category={category}/>
             <h2>{category}</h2>
             <div className="products-grid">
             {pagination.currentData && pagination.currentData.map(((product, index) => 
-                category === "All items" || category === product.category ?
-            (
                 <Product className="product-item" key={index} product={product} />
-            ) : (<></>)
             ))
             }
             </div>
